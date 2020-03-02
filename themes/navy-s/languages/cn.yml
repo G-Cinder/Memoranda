@@ -1,6 +1,6 @@
 menu:
   docs: 文档
-  api: API
+  ui: UI方案
   report: 日报
 
 index:
@@ -18,7 +18,7 @@ sidebar:
   docs:
     getting_started: 开始使用
     overview: 概述
-  api:
+  ui:
     core: 核心
     overview: 概述
   report:

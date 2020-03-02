@@ -2,7 +2,7 @@ docs:
   getting_started:
     overview: index.html
 
-api:
+ui:
   core:
     overview: index.html
 
