@@ -5,8 +5,8 @@ author: MuGuangyi
 language: en
 timezone: UTC
 
-url: https://muguangyi.github.io/ferry.io
-root: /ferry.io/
+url: https://g-cinder.github.io/Memoranda
+root: /Memoranda/
 
 theme: navy-s
 
@@ -14,5 +14,5 @@ highlight:
   enable: true
   line_number: false
 
-disqus_shortname: ferry.io
-github: muguangyi/ferry
+disqus_shortname: Memoranda
+github: g-cinder.github.io/Memoranda
