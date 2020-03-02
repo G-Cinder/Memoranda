@@ -6,4 +6,5 @@ api:
   core:
     overview: index.html
 
-report: index.html
+report:
+  overview: index.html
