@@ -1,8 +1,9 @@
 ---
 title: Documentation
 ---
-Welcome to the **Ferry** documentation.
 
-## What is Ferry?
+欢迎来到Cinder的世界。
 
-Ferry is a lightweight server framework for Go.
+## 什么是Cinder
+
+你猜！
