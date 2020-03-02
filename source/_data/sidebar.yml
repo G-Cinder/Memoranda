@@ -7,4 +7,5 @@ api:
     overview: index.html
 
 report:
-  overview: index.html
+  getting_started:
+    overview: index.html
