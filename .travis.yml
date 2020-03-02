@@ -17,7 +17,7 @@ deploy:
   provider: pages
   local-dir: public
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN
+  github-token: $GH_TOKEN
   committer-from-gh: true
 
 branches:
