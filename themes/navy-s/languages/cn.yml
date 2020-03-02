@@ -1,6 +1,7 @@
 menu:
   docs: 文档
   api: API
+  report: 日报
 
 index:
   get_started: 开始使用
