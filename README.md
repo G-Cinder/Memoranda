@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/G-Cinder/Memoranda.svg?branch=master)](https://travis-ci.com/G-Cinder/Memoranda)
+
 晓军程序团队的备忘，
 
 内容待建中。。。
