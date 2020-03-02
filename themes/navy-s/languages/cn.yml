@@ -21,3 +21,6 @@ sidebar:
   api:
     core: 核心
     overview: 概述
+  report:
+    getting_started: 开始使用
+    overview: 概述
