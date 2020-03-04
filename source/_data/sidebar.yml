@@ -8,16 +8,26 @@ code_specs:
     client_code_specs: client_code_specs.html
     statemachine: statemachine.html
     ui_module: ui_module.html
+    reconnect: reconnect.html
 
 project_specs:
   getting_started:
     overview: index.html
+    local_server_guide: local_server_guide.html
+    ui_flow: ui_flow.html
 
 
 staff_management:
   getting_started:
     overview: index.html
+    work_time_check: work_time_check.html
+    daily_report: daily_report.html
+    red_line: red_line.html
 
 technology_share:
   getting_started:
-    overview: index.html    
+    overview: index.html
+    markdown: markdown.html
+    ecs: ecs.html
+    frame_sync_game_summary: frame_sync_game_summary.html
+

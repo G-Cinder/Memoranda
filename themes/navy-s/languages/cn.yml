@@ -18,20 +18,34 @@ page:
 
 sidebar:
   cinder_framework:
-    getting_started: 开始使用
+    getting_started: 目录
     overview: 概述
 
   code_specs:
-    getting_started: 开始使用
+    getting_started: 目录
     overview: 概述
     client_code_specs: 客户端代码规范
     statemachine: 分层状态机在客户端的使用
     ui_module: UI开发规范
+    reconnect: 断线重连
 
-  ui:
-    core: 核心
+  project_specs:
+    getting_started: 目录
     overview: 概述
-  report:
-    getting_started: 开始使用
-    overview: 概述
+    local_server_guide: 本地服务器搭建指南
+    ui_flow: UI制作流程
 
+
+  staff_management:
+    getting_started: 目录
+    overview: 概述
+    work_time_check: 考勤
+    daily_report: 日报
+    red_line: 红线
+
+  technology_share:
+    getting_started:
+      overview: 目录
+      markdown: Markdown 书写指导
+      ecs: ECS原理与实践
+      frame_sync_game_summary: 帧同步游戏概述
