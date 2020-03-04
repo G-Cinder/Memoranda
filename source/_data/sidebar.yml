@@ -5,9 +5,9 @@ cinder_framework:
 code_specs:
   getting_started:
     overview: index.html
-  client_code_specs: client_code_specs.html
-  statemachine: statemachine.html
-  ui_module: ui_module.html
+    client_code_specs: client_code_specs.html
+    statemachine: statemachine.html
+    ui_module: ui_module.html
 
 project_specs:
   getting_started:
