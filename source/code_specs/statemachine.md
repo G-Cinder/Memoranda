@@ -1,0 +1,1 @@
+statemachine 在客户端的使用

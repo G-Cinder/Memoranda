@@ -1,3 +1,5 @@
-docs: /docs/
-ui: /ui/
-report: /report/
+cinder_framework: /cinder_framework
+code_specs: /code_specs/
+project_specs: /project_specs/
+staff_management: /staff_management/
+technology_share: /technology_share/

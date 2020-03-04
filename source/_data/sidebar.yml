@@ -1,11 +1,25 @@
-docs:
+cinder_framework:
+  getting_started:
+    overview: index.html
+  
+
+code_specs:
+  getting_started:
+    overview: index.html
+  
+  client_code_specs: client_code_specs.html
+  statemachine: statemachine.html
+  ui_module: ui_module.html
+
+project_specs:
   getting_started:
     overview: index.html
 
-ui:
-  core:
-    overview: index.html
 
-report:
+staff_management:
   getting_started:
     overview: index.html
+
+technology_share:
+  getting_started:
+    overview: index.html    
