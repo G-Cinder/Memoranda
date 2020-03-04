@@ -1,10 +1,12 @@
 menu:
-  docs: 文档
-  ui: UI方案
-  report: 日报
+  cinder_framework: 通用框架
+  code_specs: 代码规范
+  project_specs: 项目规范
+  staff_management: 人员管理
+  technology_share: 技术分享
 
 index:
-  get_started: 开始使用
+  get_started: 随便逛逛
 
 page:
   contents: 目录
@@ -15,12 +17,21 @@ page:
   last_updated: 上次更新：%s
 
 sidebar:
-  docs:
+  cinder_framework:
     getting_started: 开始使用
     overview: 概述
+
+  code_specs:
+    getting_started: 开始使用
+    overview: 概述
+    client_code_specs: 客户端代码规范
+    statemachine: 分层状态机在客户端的使用
+    ui_module: UI开发规范
+
   ui:
     core: 核心
     overview: 概述
   report:
     getting_started: 开始使用
     overview: 概述
+
