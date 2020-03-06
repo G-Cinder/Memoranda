@@ -34,6 +34,7 @@ sidebar:
     overview: 概述
     local_server_guide: 本地服务器搭建指南
     ui_flow: UI制作流程
+    git_flow: 使用Git管理代码必读
 
 
   staff_management:
