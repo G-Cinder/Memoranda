@@ -3,7 +3,8 @@ highlight-background = #fff
 highlight-current-line = #efefef
 highlight-selection = #d6d6d6
 highlight-foreground = #4d4d4c
-highlight-comment = #8e908c
+highlight-title = #8e908c
+highlight-comment = #478c01
 highlight-red = #c82829
 highlight-orange = #f5871f
 highlight-yellow = #eab700
@@ -14,7 +15,7 @@ highlight-purple = #8959a8
 
 pre, code
   font-family: font-mono
-  color: highlight-foreground
+  color: #ffe
   background: #eee
   font-size: 0.95em
 
@@ -30,7 +31,7 @@ pre
     padding: 0
 
 .highlight
-  background: #eee
+  background: #000
   padding: 10px 15px
   color: highlight-foreground
   overflow: auto
@@ -56,8 +57,9 @@ pre
 
 pre
   .comment
-  .title
     color: highlight-comment
+  .title
+    color: highlight-title
   .variable
   .attribute
   .tag
