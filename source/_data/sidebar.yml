@@ -3,9 +3,9 @@ cinder_framework:
     server_summary: server_summary.html
     server_mini: server_mini.html
     server_user_guild: server_user_guild.html
-    server_user_guild_chatapi: server_guild_chatapi.html
-    server_user_guild_mailapi: server_guild_mailapi.html
-    server_user_guild_matchapi: server_guild_matchapi.html
+    server_user_guild_chatapi: server_user_guild_chatapi.html
+    server_user_guild_mailapi: server_user_guild_mailapi.html
+    server_user_guild_matchapi: server_user_guild_matchapi.html
     server_user_guild_cs: server_user_guild_cs.html
     server_user_guild_frame_sync: server_user_guild_frame_sync.html
   client:
