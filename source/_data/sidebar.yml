@@ -4,6 +4,7 @@ cinder_framework:
 
 code_specs:
   common:
+    code_style: code_style.html
   client:
     client_code_specs: client_code_specs.html
     statemachine: statemachine.html

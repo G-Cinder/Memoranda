@@ -23,6 +23,7 @@ sidebar:
 
   code_specs:
     common: 通用
+    code_style: 代码规范
     client: 前端
     client_code_specs: 客户端代码规范
     statemachine: 分层状态机在客户端的使用
