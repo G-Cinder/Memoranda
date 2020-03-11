@@ -18,8 +18,23 @@ page:
 
 sidebar:
   cinder_framework:
-    getting_started: 目录
-    overview: 概述
+    server : 后端
+    server_summary: 概述
+    server_mini: 如何开始
+    server_user_guild: 通用功能使用手册
+    server_user_guild_chatapi: 聊天API使用手册
+    server_user_guild_mailapi: 邮件API使用手册
+    server_user_guild_matchapi: 匹配API使用手册
+    server_user_guild_cs: CS模式服务器开发指南
+    server_user_guild_frame_sync: 帧同步模式服务器开发指南
+    client: 前端
+    client_summary: 概述
+    client_mini: 如何开始
+    client_user_guild: 通用功能使用手册
+    client_user_guild_lua: Lua模块使用手册
+    client_user_guild_frame_sync: 帧帧同步类型前端开发指南
+    tool: 工具链
+    configdata_tool: 打表工具与Protobuf工具
 
   code_specs:
     common: 通用
