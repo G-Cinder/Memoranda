@@ -22,12 +22,15 @@ sidebar:
     overview: 概述
 
   code_specs:
-    getting_started: 目录
-    overview: 概述
+    common: 通用
+    client: 前端
     client_code_specs: 客户端代码规范
     statemachine: 分层状态机在客户端的使用
     ui_module: UI开发规范
+    server: 后端
     reconnect: 断线重连
+    scroll_view: Scrollview说明
+    server_code_specs: 服务器代码规范
 
   project_specs:
     getting_started: 目录

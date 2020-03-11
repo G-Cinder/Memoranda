@@ -3,12 +3,16 @@ cinder_framework:
     overview: index.html
 
 code_specs:
-  getting_started:
-    overview: index.html
+  common:
+  client:
     client_code_specs: client_code_specs.html
     statemachine: statemachine.html
     ui_module: ui_module.html
+    scroll_view: scroll_view.html
     reconnect: reconnect.html
+  server:
+    server_code_specs: server_code_specs.html
+
 
 project_specs:
   getting_started:
