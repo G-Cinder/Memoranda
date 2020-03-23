@@ -47,6 +47,7 @@ staff_management:
     work_time_check: work_time_check.html
     daily_report: daily_report.html
     red_line: red_line.html
+    crowdfunding: crowdfunding.html
 
 technology_share:
   getting_started:
