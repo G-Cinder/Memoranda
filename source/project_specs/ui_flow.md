@@ -37,6 +37,7 @@ title: UI制作流程
 |togglegroup|单选/开关按钮组|单选/开关按钮组，需要明确指出=togglegroup，子层单选按钮必须是toggle，要求参考toggle|
 |slider|进度条|进度条（组），需要明确指明=slider，并按规则创建子层并命名。包含规则的子层有以下几种：<br>1. fill：进度条（必须）<br>2. normal：进度条背景图（必须）<br>3. handle：可控制图片|
 |scrollrect<br>scrollsystem|瀑布条|滚动视图（组），需要明确指出=scrollrect或者=scrollsystem，并按规则创建子层并命名。包含规则的子层有以下几种：<br>1. normal:滚动视图的背景图<br>2. scrollitem：单元组件（必须）|
+|dropdown|下拉列表|下拉列表（组），需要明确指出=dropdown，并按规则创建子层并命名。包含规则的子层有以下几种：<br>1. normal:选择项的背景<br>2. arrow:响应弹出下拉菜单<br>3. text:选择项文字<br>4. template:下拉菜单背景图<br>5. option:可选项，可以是文本或者图片|
 |hscrollbar<br>vscrollbar|水平滚动条<br>垂直滚动条|1. handle：滑块（必须）<br>2. normal：背景图（必须）|
 
 ### 参数
