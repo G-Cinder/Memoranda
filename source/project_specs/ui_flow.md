@@ -28,9 +28,10 @@ title: UI制作流程
 
 |控件|描述|规则
 |--:|:--|:--|
-|image|图片|图片（层），无需明确指出image，作为普通图片控件导出。|
-|rawimage|占位图片|图片（层），需明确指出=rawimage，图片不导出。|
-|label|文本|文本（层），无需明确指出=label，作为文本控件导出|
+|image|图片|图片（层/组），无需明确指出image，作为普通图片控件导出。|
+|rawimage|占位图片|图片（层/组），需明确指出=rawimage，图片不导出。|
+|label|文本|文本（层/组），无需明确指出=label，作为文本控件导出。|
+|textmesh|TextMesh文本|TextMesh文本（层/组），需明确指出=textmesh，作为TextMesh文本控件导出。|
 |button|按钮|按钮（组），需要明确指出=button，并且按规则创建子层并命名。包含规则的子层有以下几种：<br>1. text：按钮上的文本<br>&nbsp;&nbsp;&nbsp;&nbsp;文本层，name=text<br>2. normal：按钮默认状态图（必须）<br>&nbsp;&nbsp;&nbsp;&nbsp;图片层，name=normal<br>3. highlight：按钮高亮状态图<br>&nbsp;&nbsp;&nbsp;&nbsp;图片层，name=highlight<br>4. pressed：按下状态图<br>5. disabled：不可用状态图<br><br>单图片按钮可以简化为图片层，并指出=button。|
 |inputfield|文本输入框|文本输入框（组），需要明确指出=inputfield，并且按规则创建子层并命名。包含规则的子层有以下几种：<br>1. text：输入框的文本内容（必须）<br>&nbsp;&nbsp;&nbsp;&nbsp;文本层，name=text<br>2. placeholder：占位符文本<br>&nbsp;&nbsp;&nbsp;&nbsp;文本层，name=placeholder<br>3. normal：背景图|
 |toggle|勾选/开关按钮|勾选按钮（组），需要明确指出=toggle，并且按规则创建子层并命名。包含规则的子层有以下几种：<br>1. text：按钮文本<br>&nbsp;&nbsp;&nbsp;&nbsp;文本层，name=text<br>2. normal: 按钮默认状态图<br>&nbsp;&nbsp;&nbsp;&nbsp;图片层，name=normal<br>3. checkmark：勾选图片（必须）<br>&nbsp;&nbsp;&nbsp;&nbsp;图片层，name=checkmark|
