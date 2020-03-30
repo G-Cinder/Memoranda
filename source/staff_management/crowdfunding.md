@@ -34,6 +34,8 @@ title: 众筹
 | 2020.03.23 | 张潇 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM18.jpg)| 
 | 2020.03.23 | 李祖林 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM20.jpg)| 
 | 2020.03.23 | 班定悦 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM19.jpg)| 
+| 2020.03.30 | 江剑 | 未写日报 | 100 | [否](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/15855312661980.png)| 
+| 2020.03.30 | 阮班 | 未写日报 | 100 | [否](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/15855312661980.png)| 
 
 -------------------------
 # 众筹: ￥600
