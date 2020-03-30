@@ -24,6 +24,9 @@ title: 众筹
 | 2019.01.21 | 李晨曦 | 未写周报 | 300 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20190121_042509000_iOS.png)| 
 | 2019.02.13 | 陶许林 | 未写周报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20190213123220.png)| 
 | 2019.02.13 | 戴城 | 未写周报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20190213123203.png)| 
+| |  |  |  |  |
+| 2019.03.14 | 分割线 | ---------- | ----- | ---- |
+| |  |  |  |  |
 | 2019.06.12 | 张潇 | 迟到 | 50 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20190612.png)| 
 | 2019.07.04 | 雷腾 | 迟到 | 50 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20190704113616.png)| 
 | 2019.07.11 | 雷腾 | 迟到 | 50 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20190711_015556000_iOS.png)| 
@@ -34,11 +37,11 @@ title: 众筹
 | 2020.03.23 | 张潇 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM18.jpg)| 
 | 2020.03.23 | 李祖林 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM20.jpg)| 
 | 2020.03.23 | 班定悦 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM19.jpg)| 
-| 2020.03.30 | 江剑 | 未写日报 | 100 | [否](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/15855312661980.png)| 
-| 2020.03.30 | 阮班 | 未写日报 | 100 | [否](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/15855312661980.png)| 
+| 2020.03.30 | 江剑 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM24.jpg)| 
+| 2020.03.30 | 阮班 | 未写日报 | 100 | [是](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM23.jpg)| 
 
 -------------------------
-# 众筹: ￥600
+# 众筹: ￥800
 
 
 -------------------------
