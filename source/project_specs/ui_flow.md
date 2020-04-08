@@ -7,7 +7,8 @@
 * 完成psd之后,美术点击导出脚本，选中IndexicalName,填上Prefix(导出图片名字的前缀),最后点击Export。
 
   ![psd_export](psd_export.png)
-* 美术将在导出的图中删除公有图片,最后把导出生成的"xxx.psd-cinder"目录打包发给程序。
+  
+* 最后把导出生成的"xxx.psd-cinder"目录打包发给程序。
 
 ###2.程序
 
@@ -20,8 +21,10 @@
 * 导入成功后可以看到下图，选择的程序主界面上增加了由psd生成的UI结构。
 
   ![psd2ugui1](psd2ugui1.png)
-  
+    
 * "xxx.psd-cinder"目录下assets资源的私有图片会放入到"Cinder\Assets\Daisy\RawResources\UI\Image"下界面对应的目录下。
+
+* 程序修改前需要跟美术一起设置公共图片,改完后需要将放在私有图片目录下的公共图片删除。
 
 ####(2) 合并控件
 * 从程序创建的UI结构中选中一个目标节点,从由psd生成的UI结构一个源节点,点击合并。(选中控件建议使用基础工具栏中的Rect Tool)
