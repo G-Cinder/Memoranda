@@ -37,6 +37,7 @@ project_specs:
     overview: index.html
     local_server_guide: local_server_guide.html
     ui_flow: ui_flow.html
+    ui_performance: ui_performance.html
     configdata_tool: configdata_tool.html
     git_flow: git_flow.html
 
