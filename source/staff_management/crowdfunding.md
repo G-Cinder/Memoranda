@@ -44,7 +44,7 @@ title: 众筹
 | 2020.04.14 | 刘炜 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/NoPicture.png)| 
 | 2020.04.14 | 李永辉 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM7.png)| 
 -------------------------
-# 众筹: ￥900
+# 众筹: ￥1000
 
 
 -------------------------
