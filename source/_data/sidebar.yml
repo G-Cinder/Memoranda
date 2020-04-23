@@ -1,5 +1,5 @@
 cinder_framework:
-  server :
+  server:
     server_summary: server_summary.html
     server_mini: server_mini.html
     server_user_guild: server_user_guild.html
@@ -14,7 +14,6 @@ cinder_framework:
     client_user_guild: client_user_guild.html
     client_user_guild_lua: client_user_guild_lua.html
     client_user_guild_frame_sync: client_user_guild_frame_sync.html
-  
   tool:
     configdata_tool: configdata_tool.html
 
