@@ -1,30 +1,23 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
-
+name: GitHub Actions Build and Deploy Demo
 on:
   push:
     branches:
       - master
-
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [ 10.x ]
-
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    
-    - name: Deploy
+
+    - name: Build and Deploy
       uses: G-Cinder/Memoranda@master
-      with:
+      env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: public # The folder the action should deploy.
-        BUILD_SCRIPT: npm i -g hexo && npm install && hexo clean && hexo generate
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: public
+        BUILD_SCRIPT: npm i -g hexo && npm install && hexo generate
