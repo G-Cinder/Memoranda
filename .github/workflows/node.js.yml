@@ -18,15 +18,7 @@ jobs:
         node-version: [ 10.x ]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install -g hexo-cli
-    - run: npm install
-    - run: hexo clean
-    - run: hexo g
+    - uses: actions/checkout@master
     
     - name: Deploy
       uses: G-Cinder/Memoranda@master
@@ -34,3 +26,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages # The branch the action should deploy to.
         FOLDER: public # The folder the action should deploy.
+        BUILD_SCRIPT: npm i -g hexo && npm install && hexo clean && hexo generate
