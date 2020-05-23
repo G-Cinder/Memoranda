@@ -11,6 +11,7 @@ cinder_framework:
   client:
     client_summary: client_summary.html
     client_mini: client_mini.html
+    client_service: client_service.html
     client_user_guild: client_user_guild.html
     client_user_guild_lua: client_user_guild_lua.html
     client_user_guild_frame_sync: client_user_guild_frame_sync.html

@@ -30,6 +30,7 @@ sidebar:
     client: 前端
     client_summary: 概述
     client_mini: 如何开始
+    client_service: 服务
     client_user_guild: 通用功能使用手册
     client_user_guild_lua: Lua模块使用手册
     client_user_guild_frame_sync: 帧帧同步类型前端开发指南
