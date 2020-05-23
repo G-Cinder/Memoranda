@@ -31,8 +31,12 @@ sidebar:
     client_summary: 概述
     client_mini: 如何开始
     client_service: 服务
-    client_user_guild: 通用功能使用手册
-    client_user_guild_lua: Lua模块使用手册
+    client_lua_basic: Lua 基础
+    client_network: Network 网络交互服务
+    client_resourcesmanager: Resource 资源管理服务
+    client_gui: GUI 图形界面
+    client_statemachine_ui: 状态机 & UI
+    client_techguide: Lua 开发规范
     client_user_guild_frame_sync: 帧帧同步类型前端开发指南
     tool: 工具链
     configdata_tool: 打表工具与Protobuf工具

@@ -12,8 +12,12 @@ cinder_framework:
     client_summary: client_summary.html
     client_mini: client_mini.html
     client_service: client_service.html
-    client_user_guild: client_user_guild.html
-    client_user_guild_lua: client_user_guild_lua.html
+    client_lua_basic: client_lua_basic.html
+    client_network: client_network.html
+    client_resourcesmanager: client_resourcesmanager.html
+    client_gui: client_gui.html
+    client_statemachine_ui: client_statemachine_ui.html
+    client_lua_techguide: client_lua_techguide.html
     client_user_guild_frame_sync: client_user_guild_frame_sync.html
   tool:
     configdata_tool: configdata_tool.html
