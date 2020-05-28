@@ -45,6 +45,24 @@ end
 return M
 ```
 
+### 实例化
+
+实例化一个class可以通过`new`方法。
+
+```lua
+local A = class("A")
+
+local instance = A.new()
+```
+
+实现单例可以使用`single`方法。
+
+```lua
+local A = class("A")
+
+local singleton = A.single()
+```
+
 ## 实现接口
 
 ```lua
@@ -65,7 +83,22 @@ function M:TestB()
 end
 ```
 
+如果一个`class`显式声明实现特定的`interface`，那么就需要确保`interface`定义的函数`class`都有相应的入口实现，否则运行时会报错。
+
 ## extend
+
+框架层提供了很多基础对象，有些时候这些对象的API不能满足开发的要求，需要在原有的基础上扩展出一些定制的方法，那么可以使用`extend`。
+
+> `NOTE`: 扩展只能针对class的定义，不能是interface，也不能是class的实例。
+
+例如，UI框架提供的UICtrl是所有Window的基础class，假定项目需要额外的Foo方法，又无法直接修改源码，那么就可以同过extend方法来达到目的。
+
+```lua
+local M = extend(UICtrl)
+
+function M:Foo()
+end
+```
 
 ## delegate/delegator
 
