@@ -16,27 +16,23 @@ title: Scroll System
 >1、Unity相关
 
 （1）在对应的UI层级下，创建一个空的子物体
-（2）把ScrollSystem.cs拖拽到空物体上，拖拽完成之后会自动创建所需的其他控件，ScrollRect，Image，mask			等，并且会创建一个名字为Content Transform的子物体作为ScrollRect的Content
+（2）把ScrollSystem.cs拖拽到空物体上，拖拽完成之后会自动创建所需的其他控件，ScrollRect，Image，mask	等，并且会创建一个名字为Content Transform的子物体作为ScrollRect的Content
 
 ![微信截图_20200529144147](..\assets\framework\scrollsystem_20200529144147.png)
 
 ![微信截图_20200529144216](..\assets\framework\scrollsystem_20200529144216.png)
 
-（3）调整ScrollSystem所在节点的宽高至理想大小，在content Transform节点下创建好所需要的界面元素，可		以一个，也可以是多个。调整界面元素至理想大小，手动点击ScrollSystem上的”子物体手动刷新“，来预览最		终的排列效果。需要注意的是，最后留在这个Content Transform节点下的子物体，相同物体只留下作为原始		模板
+（3）调整ScrollSystem所在节点的宽高至理想大小，在content Transform节点下创建好所需要的界面元素，可	以一个，也可以是多个。调整界面元素至理想大小，手动点击ScrollSystem上的”子物体手动刷新“，来预览最终的排列效果。需要注意的是，最后留在这个Content Transform节点下的子物体，相同物体只留下一个作为原始模板
 
 ![微信截图_20200529145447](..\assets\framework\scrollsystem_20200529145447.png)
 
 ![微信截图_20200529145817](..\assets\framework\scrollsystem_20200529145817.png)
 
-（4）元素排列顺序取决于ScrollSystem上面的StartCorner和ScrollDirection两个参数，基础规则为：如果当前行		或者列，能容纳下一个元素，那么会紧跟上一个元素，否则会另起新行或者列进行排列。另外，也可以根据		需要，在元素上添加ScrollLayout.cs来决定是否主动另起新行，并且可以设置在新行居中，左对齐（上对		齐），右对齐（下对齐）
+（4）元素排列顺序取决于ScrollSystem上面的StartCorner和ScrollDirection两个参数，基础规则为：如果当前行或者列，能容纳下一个元素，那么会紧跟上一个元素，否则会另起新行或者列进行排列。另外，也可以根据需要，在元素上添加ScrollLayout.cs来决定是否主动另起新行，并且可以设置在新行居中，左对齐（上对齐），右对齐（下对齐）
 
 ![微信截图_20200529150641](..\assets\framework\scrollsystem_20200529150641.png)
 
 （5）至此，在Unity里的基础设置就告一段落了。关于ScrollSystem上面的一些参数的具体含义，以及ScrollLayout的一些其他用法，后面会继续介绍，这里只专注于满足基本流程的流程
-
-
-
-
 
 ---
 >2、Lua相关
