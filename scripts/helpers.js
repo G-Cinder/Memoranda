@@ -51,15 +51,26 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
   var self = this;
   var prefix = 'sidebar.' + type + '.';
 
-  _.each(sidebar, function(menu, title) {
-    result += '<strong class="' + className + '-title">' + self.__(prefix + title) + '</strong>';
+  function genMenu(item, content, depth) {
+    var html = '<div class="sidebar-item"><strong class="' + className + '-title">' + self.__(prefix + content) + '</strong>';
 
-    _.each(menu, function(link, text) {
-      var itemClass = className + '-link';
-      if (link === path) itemClass += ' current';
-
-      result += '<a href="' + link + '" class="' + itemClass + '">' + self.__(prefix + text) + '</a>';
+    _.each(item, function(i, c) {
+      if (typeof i == "string") {
+        var itemClass = className + '-link';
+        if (i === path) itemClass += ' current';
+  
+        html += '<div class="sidebar-item"><a href="' + i + '" class="' + itemClass + '">' + self.__(prefix + c) + '</a></div>';
+      } else {
+        html += genMenu(i, c, depth + 1)
+      }
     });
+    html += '</div>'
+
+    return html;
+  }
+
+  _.each(sidebar, function(menu, title) {
+    result += genMenu(menu, title, 0)
   });
 
   return result;
