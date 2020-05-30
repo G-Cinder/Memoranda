@@ -35,6 +35,8 @@ sidebar:
     client_network: Network 网络交互服务
     client_resourcesmanager: Resource 资源管理服务
     client_gui: GUI 图形界面
+    client_gui_summary: GUI 系统概述
+    client_gui_scrollsystem: Scroll System
     client_statemachine_ui: 状态机 & UI
     client_lua_techguide: Lua 开发规范
     client_user_guild_frame_sync: 帧帧同步类型前端开发指南
