@@ -2,8 +2,6 @@
 title: Scroll System
 ---
 
-# Scroll System
-
 ## 特色
 ---
 * 控件元素循环使用
