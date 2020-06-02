@@ -36,6 +36,7 @@ sidebar:
     client_resourcesmanager: Resource 资源管理服务
     client_gui: GUI 图形界面
     client_gui_summary: GUI 系统概述
+    client_gui_components: GUI 组件
     client_gui_scrollsystem: Scroll System
     client_statemachine_ui: 状态机 & UI
     client_lua_techguide: Lua 开发规范

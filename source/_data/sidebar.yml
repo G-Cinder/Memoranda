@@ -17,6 +17,7 @@ cinder_framework:
     client_resourcesmanager: client_resourcesmanager.html
     client_gui:
       client_gui_summary: client_gui_summary.html
+      client_gui_components: client_gui_components.html
       client_gui_scrollsystem: client_gui_scrollsystem.html
     client_statemachine_ui: client_statemachine_ui.html
     client_lua_techguide: client_lua_techguide.html
