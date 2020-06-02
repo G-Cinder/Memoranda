@@ -3,25 +3,18 @@
 ## 一、注意事项
 执行以下步骤前请先把之前在本机安装过的redis、mongodb、etcd、nsq卸载或禁止运行。	
 
-## 二、svn拉取服务器代码
+## 二、git拉取服务器代码
 
-### 1、svn账号：
-名字全拼拼音。密码：123456 (账号没有或者不对，找王晓军)。
+### 1、git账号：
+名字全拼拼音。密码：123456 (账号没有或者密码不对，找王晓军)。
 
-### 2、svn地址：
+### 2、git地址：
 ```
-svn://192.168.150.63/Daisy/Cinder_Server/trunk/Cinder_Server
-svn://192.168.150.63/Daisy/Cinder_ConfigData/trunk/Cinder_ConfigData
-svn://192.168.150.63/Daisy/Cinder/trunk/Cinder
+http://gitlab.ztgame.com/Chaos/Daisy.git
 ```
 
 ### 3、本地路径注意事项
-注意不要包含中文路径，以上3个仓库必须检出在同级目录下：
-```
-C:\ccdmx\Cinder_Server
-C:\ccdmx\Cinder_ConfigData
-C:\ccdmx\Cinder
-```
+注意不要包含中文路径
 
 ## 三、安装服务器依赖环境
 
