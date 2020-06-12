@@ -45,8 +45,9 @@ title: 众筹
 | 2020.04.14 | 李永辉 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/DCIM7.png)| 
 | 2020.05.12 | 梁金尧 | 迟到 | 50 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200512.png)| 
 | 2020.06.01 | 张潇 | 迟到 | 50 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200601.png)| 
+| 2020.06.12 | 方亮 | 发票 | 440 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/404.png)| 
 -------------------------
-# 众筹: ￥1050
+# 众筹: ￥1490
 
 
 -------------------------
