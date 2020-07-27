@@ -52,7 +52,7 @@ http://gitlab.ztgame.com/Chaos/Daisy.git
 ```
 {
   "registry-mirrors": [
-    "https://registry.docker-cn.com"
+    "http://hub-mirror.c.163.com"
   ],
   "insecure-registries": [],
   "debug": true,
