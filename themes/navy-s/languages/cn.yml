@@ -64,6 +64,7 @@ sidebar:
     ui_performance: UGUI优化策略
     configdata_tool: 打表工具与Protobuf代码生成工具使用说明
     git_flow: 使用Git管理代码必读
+    git_rule: Git开发规则
 
 
   staff_management:

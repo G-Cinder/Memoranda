@@ -47,6 +47,7 @@ project_specs:
     ui_performance: ui_performance.html
     configdata_tool: configdata_tool.html
     git_flow: git_flow.html
+    git_rule: git_rule.html
 
 
 staff_management:
