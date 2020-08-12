@@ -47,13 +47,14 @@ title: 众筹
 | 2020.06.01 | 张潇 | 迟到 | 50 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200601.png)| 
 | 2020.06.12 | 方亮 | 发票 | 440 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/404.png)| 
 | 2020.06.15 | 江剑 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202006150.jpg)| 
-| 2020.06.15 | 岳新雨  | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202006151.jpg)| 
-| 2020.08.04 | 李梓宁  | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200804.jpg)| 
-| 2020.08.04 | 岳新雨  | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200805.png)| 
-| 2020.08.05 | 岳新雨  | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200806.png)| 
+| 2020.06.15 | 岳新雨 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202006151.jpg)| 
+| 2020.08.04 | 李梓宁 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200804.jpg)| 
+| 2020.08.04 | 岳新雨 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200805.png)| 
+| 2020.08.05 | 岳新雨 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200806.png)| 
+| 2020.08.12 | 王晓和 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200812.jpg)| 
 
 -------------------------
-# 众筹: ￥1990
+# 众筹: ￥2090
 
 
 -------------------------
