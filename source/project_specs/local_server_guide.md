@@ -106,6 +106,7 @@ Cinder_Server\
 Cinder_Server\Server\src\Cinder\plugin\navmesh
 ```
 执行脚本install.bat
+
 2. 进入以下目录
 ```
 Cinder_Server\Server\src\Cinder\plugin\physxgo
