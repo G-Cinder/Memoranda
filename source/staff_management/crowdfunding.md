@@ -56,7 +56,7 @@ title: 众筹
 | 2020.08.21 | 岳新雨 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202008213.jpg)| 
 | 2020.08.21 | 李梓宁 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202008212.jpg)| 
 | 2020.08.21 | 廖涔陈 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202008210.jpg)| 
-
+| 2020.09.01 | 岳新雨 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20200901.png)| 
 -------------------------
 # 众筹: ￥2490
 
