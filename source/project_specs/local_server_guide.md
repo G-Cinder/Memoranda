@@ -82,9 +82,10 @@ http://gitlab.ztgame.com/Chaos/Daisy.git
 ## 五、启动服务器
 
 ### 1、服务器脚本路径
-所有的服务器脚本均在此目录下：
+所有的服务器脚本均在以下两个目录：
 ```
 Cinder_Server\src\Daisy
+Cinder_Server\
 ```
 脚本功能如下：
 
@@ -98,6 +99,18 @@ Cinder_Server\src\Daisy
 | docker_uninstall.bat | docker服务卸载脚本 |
 | start.bat | 服务器启动脚本 |
 | stop.bat | 服务器停止脚本 |
+
+### 2、安装服务器plugin
+1. 进入以下目录
+```
+Cinder_Server\Server\src\Cinder\plugin\navmesh
+```
+执行脚本install.bat
+2. 进入以下目录
+```
+Cinder_Server\Server\src\Cinder\plugin\physxgo
+```
+执行脚本install_debug.bat
 
 ### 2、启动服务器
 1. 首次启动服务器前，必须先执行docker_install.bat安装docker服务，之后就无需安装了。
