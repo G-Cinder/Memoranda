@@ -82,9 +82,10 @@ http://gitlab.ztgame.com/Chaos/Daisy.git
 ## 五、启动服务器
 
 ### 1、服务器脚本路径
-所有的服务器脚本均在此目录下：
+所有的服务器脚本均在以下两个目录：
 ```
 Cinder_Server\src\Daisy
+Cinder_Server\
 ```
 脚本功能如下：
 
@@ -99,14 +100,27 @@ Cinder_Server\src\Daisy
 | start.bat | 服务器启动脚本 |
 | stop.bat | 服务器停止脚本 |
 
-### 2、启动服务器
+### 2、安装服务器plugin
+1. 进入以下目录
+```
+Cinder_Server\Server\src\Cinder\plugin\navmesh
+```
+执行脚本install.bat
+
+2. 进入以下目录
+```
+Cinder_Server\Server\src\Cinder\plugin\physxgo
+```
+执行脚本install_debug.bat
+
+### 3、启动服务器
 1. 首次启动服务器前，必须先执行docker_install.bat安装docker服务，之后就无需安装了。
 2. 点击脚本start.bat就可以启动服务器了，目前脚本会启动Login、Agent、Game、Battle、DBAgent、Center共6个进程，启动后检查进程数量是否正确，并且在终端是否打印“i'm alive”。
 ![](server_res\14.png)
 
-### 3、停止服务器
+### 4、停止服务器
 点击脚本stop.bat就可以停止服务器了。
 
-### 3、其他注意事项
+### 5、其他注意事项
 1. 服务器宕机后，终端不会挂掉，发现宕机问题时从终端拷贝信息发送给服务器开发人员定位。
 2. dock服务安装后会占用一定系统资源，如果不想资源被占用，那么可以点击docker_stop.bat停止docker服务，以后启动服务器前先点击docker_start.bat启动docker服务即可。
