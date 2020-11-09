@@ -66,6 +66,9 @@ title: 众筹
 | 2020.10.22 | 张潇 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202010221.png)|   
 | 2020.10.28 | 芮耀 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201028.png)|   
 | 2020.10.29 | 张潇 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201029.png)| 
+| 2020.11.09 | 岳新雨 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201109.png)| 
+| 2020.11.09 | 孙玉龙 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201109.png)| 
+| 2020.11.09 | 班定悦 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201109.png)| 
 -------------------------
 # 众筹: ￥3290
 
