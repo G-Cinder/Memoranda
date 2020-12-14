@@ -70,7 +70,7 @@ title: 众筹
 | 2020.11.09 | 孙玉龙 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202011090.png)| 
 | 2020.11.09 | 班定悦 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201109.png)| 
 | 2020.11.24 | 班定悦 | 迟到 | 50 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201124.png)| 
-| 2020.12.10 | 孙玉龙 | 发票 | 1500 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201210.png)| 
+| 2020.12.14 | 王晓和 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201214.png)| 
 -------------------------
 # 众筹: ￥4940
 
