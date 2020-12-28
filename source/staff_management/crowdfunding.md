@@ -72,15 +72,19 @@ title: 众筹
 | 2020.11.24 | 班定悦 | 迟到 | 50 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201124.png)| 
 | 2020.12.14 | 王晓和 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201214.png)| 
 | 2020.12.14 | 王光宁 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201216.png)| 
+| 2020.12.14 | 江剑 | 未写日报 | 100 | [True](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202012281.png)| 
+| 2020.12.14 | 岳新雨 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202012280.png)| 
+| 2020.12.14 | 李梓宁 | 未写日报 | 100 | [False](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/202012280.png)| 
 -------------------------
-# 众筹: ￥0
+# 众筹: ￥870
 
 
 -------------------------
 PS:
 * 2019.03.14已由[蒋林旭转交给曲琛](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20190314160752.png)
 * 2019.03.15已由曲琛转交给闫玉亮 用于WOW团建点卡 1800)
-* 2020.12.18已由[蒋林旭转交给江剑] 用于舟山团建 4940)(https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201218.png)
+* 2020.12.18已由[蒋林旭转交给江剑 用于舟山团建 4940](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201218.png)
+* 2020.12.21已由[江剑退还蒋林旭 舟山团建剩余 770](https://github.com/G-Cinder/Memoranda/raw/master/source/assets/crowdfundings/20201221.png)
 
 
 
