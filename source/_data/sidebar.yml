@@ -48,6 +48,7 @@ project_specs:
     configdata_tool: configdata_tool.html
     git_flow: git_flow.html
     git_rule: git_rule.html
+    configuration: configuration.html
 
 
 staff_management:
