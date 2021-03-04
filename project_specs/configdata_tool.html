@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/project_specs/configdata_tool.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/project_specs/configdata_tool.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="Proto打表工具使用说明提要打表工具解析Excel文件或Proto定义文件转化为游戏运行中需要的定义文件或数据文件。  定义文件包括：.proto后缀文件、.cs、.go等各语言文件以及予lua加载proto定义的game.pc文件数据文件包括：解析excel生成的.bytes文件和lua table文件  Cinder、Cinder_Server和Cinder_ConfigData三个项目需要">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cinder">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/project_specs/configdata_tool.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="Proto打表工具使用说明提要打表工具解析Excel文件或Proto定义文件转化为游戏运行中需要的定义文件或数据文件。  定义文件包括：.proto后缀文件、.cs、.go等各语言文件以及予lua加载proto定义的game.pc文件数据文件包括：解析excel生成的.bytes文件和lua table文件  Cinder、Cinder_Server和Cinder_ConfigData三个项目需要">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cinder">
+<meta name="twitter:description" content="Proto打表工具使用说明提要打表工具解析Excel文件或Proto定义文件转化为游戏运行中需要的定义文件或数据文件。  定义文件包括：.proto后缀文件、.cs、.go等各语言文件以及予lua加载proto定义的game.pc文件数据文件包括：解析excel生成的.bytes文件和lua table文件  Cinder、Cinder_Server和Cinder_ConfigData三个项目需要">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name"></h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/project_specs/configdata_tool.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h1 id="Proto打表工具使用说明" class="article-heading"><a href="#Proto打表工具使用说明" class="headerlink" title="Proto打表工具使用说明"></a>Proto打表工具使用说明<a class="article-anchor" href="#Proto打表工具使用说明" aria-hidden="true"></a></h1><h2 id="提要" class="article-heading"><a href="#提要" class="headerlink" title="提要"></a>提要<a class="article-anchor" href="#提要" aria-hidden="true"></a></h2><p>打表工具解析<strong>Excel文件</strong>或<strong>Proto定义文件</strong>转化为游戏运行中需要的<strong>定义文件</strong>或<strong>数据文件</strong>。</p>
+<blockquote>
+<p>定义文件包括：.proto后缀文件、.cs、.go等各语言文件以及予lua加载proto定义的game.pc文件<br>数据文件包括：解析excel生成的.bytes文件和lua table文件</p>
+</blockquote>
+<p><em>Cinder、Cinder_Server和Cinder_ConfigData三个项目需要放在同级目录。</em></p>
+<h2 id="使用" class="article-heading"><a href="#使用" class="headerlink" title="使用"></a>使用<a class="article-anchor" href="#使用" aria-hidden="true"></a></h2><h3 id="工具分类" class="article-heading"><a href="#工具分类" class="headerlink" title="工具分类"></a>工具分类<a class="article-anchor" href="#工具分类" aria-hidden="true"></a></h3><p>工具共有三个可执行脚本，<strong>ToDataTables</strong>、<strong>ToDProto</strong>以及<strong>CopyAllDataTablesToGamePath</strong>，这三个脚本又分别有.bat与.sh两个版本给予Windows和Mac各自使用。</p>
+<p>这三个脚本各自功能如下：</p>
+<ol>
+<li><strong>ToDataTables</strong>解析Excel文件，生成.proto定义文件、.cs等语言文件、.bytes文件以及luatable文件，到同级的ConfigGenerated文件夹。通常策划修改Excel之后就需要运行该脚本。</li>
+<li><strong>ToDProto</strong>解析Proto文件，生成.cs等语言文件和game.pc文件，到同级的ConfigGenerated文件夹。通常由程序修改proto文件后运行该脚本。</li>
+<li><strong>CopyAllDataTablesToGamePath</strong>将ConfigGenerated文件夹内所有文件拷贝到项目中，各自对应关系定义在Config.ini.txt内。</li>
+</ol>
+<h3 id="使用与提交" class="article-heading"><a href="#使用与提交" class="headerlink" title="使用与提交"></a>使用与提交<a class="article-anchor" href="#使用与提交" aria-hidden="true"></a></h3><ol>
+<li>根据需要运行<strong>ToDataTables（解析excel）</strong>，或者<strong>ToDProto（解析proto）</strong>。</li>
+<li>运行<strong>CopyAllDataTablesToGamePath</strong>将生成的文件拷贝到项目内。</li>
+<li>上传与项目外链的<strong>ConfigGenerated文件夹</strong>。</li>
+</ol>
+<blockquote>
+<p>将<strong>CopyAllDataTablesToGamePath</strong>的拷贝功能从两个生成脚本中挪将出来，可以让打表在修改配置的时候具有更高的灵活度。</p>
+</blockquote>
+<h2 id="配置" class="article-heading"><a href="#配置" class="headerlink" title="配置"></a>配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h2><h3 id="概述" class="article-heading"><a href="#概述" class="headerlink" title="概述"></a>概述<a class="article-anchor" href="#概述" aria-hidden="true"></a></h3><p><strong>Config.ini.txt</strong>下共有三个配置：</p>
+<ol>
+<li><strong>CustomExcelPack</strong>： 选择打哪些表，一般项目成员多修改该配置缩短打表时间。</li>
+<li><strong>IncludeClientNativeData</strong>：客户端限制保留，限制生成.cs文件缩短编译耗时，由客户端修改。</li>
+<li><strong>GamePath</strong>：子文件夹对应项目实际目录，在项目初始时配置，中后期一般不需要改动。</li>
+</ol>
+<h3 id="范例" class="article-heading"><a href="#范例" class="headerlink" title="范例"></a>范例<a class="article-anchor" href="#范例" aria-hidden="true"></a></h3><ul>
+<li><strong>CustomExcelPack</strong>， 该段配置默认如下:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[CustomExcelPack]</span><br><span class="line">all</span><br></pre></td></tr></table></figure>
+<p>这表示解析打表所有excel文件。多数时候你可能只是修改一个excel（比如它叫做Skill_Config.xlsx），那么你可以这样修改配置只打一张表：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[CustomExcelPack]</span><br><span class="line">Skill_Config</span><br></pre></td></tr></table></figure>
+<p>配置不需要填写文件后缀。这样的修改可以缩短打表时间。</p>
+<ul>
+<li><strong>IncludeClientNativeData</strong>，该段配在丛林大冒险项目置默认如下:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[IncludeClientNativeData]</span><br><span class="line">AI_Config</span><br><span class="line">Chapter_Config</span><br><span class="line">Job_Config</span><br><span class="line">NPC_Config</span><br><span class="line">Pet_Config</span><br><span class="line">Skill_Config</span><br><span class="line">QuickBattle_Config</span><br></pre></td></tr></table></figure>
+<p>这表示只有这几个excel的数据是C#需要的，其他的就不要生成C#的文件，降低客户端编译耗时，如果需要保留所有的C#文件，可以填入all。</p>
+<ul>
+<li><strong>GamePath</strong>，这段配置一般在项目初始时设置，请按各自项目实际情况修改。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[GamePath]</span><br><span class="line">c_bytes=..\..\Cinder\Assets\Daisy\RawResources\Datas</span><br><span class="line">c_luatable=..\..\Cinder\Assets\Daisy\RawResources\Lua\Datas\Tables</span><br><span class="line">c_cs=..\..\Cinder\Assets\Daisy\Scripts\DataTables</span><br><span class="line">c_proto=..\..\Cinder\Assets\Daisy\Scripts\ProtoDef</span><br><span class="line">c_ScriptAssets=..\..\Cinder\Assets\Daisy\RawResources\ScriptAssets</span><br><span class="line"></span><br><span class="line">s_src_DataTables=..\..\Cinder_Server\src\Daisy\DataTables</span><br><span class="line">s_src_DProto=..\..\Cinder_Server\src\Daisy\DProto</span><br><span class="line">s_res_Proto=..\..\Cinder_Server\res\Daisy\Proto</span><br><span class="line">s_res_DataTables=..\..\Cinder_Server\res\Daisy\DataTables</span><br></pre></td></tr></table></figure>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.312Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="ui_performance.html" class="article-footer-prev" title="UGUI优化策略"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="git_flow.html" class="article-footer-next" title="使用Git管理代码必读"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Proto打表工具使用说明"><span class="toc-text">Proto打表工具使用说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提要"><span class="toc-text">提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工具分类"><span class="toc-text">工具分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用与提交"><span class="toc-text">使用与提交</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#范例"><span class="toc-text">范例</span></a></li></ol></li></ol></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">目录</strong><div class="sidebar-item"><a href="index.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="local_server_guide.html" class="sidebar-link">本地服务器搭建指南</a></div><div class="sidebar-item"><a href="ui_flow.html" class="sidebar-link">UI制作流程</a></div><div class="sidebar-item"><a href="ui_performance.html" class="sidebar-link">UGUI优化策略</a></div><div class="sidebar-item"><a href="configdata_tool.html" class="sidebar-link current">打表工具与Protobuf代码生成工具使用说明</a></div><div class="sidebar-item"><a href="git_flow.html" class="sidebar-link">使用Git管理代码必读</a></div><div class="sidebar-item"><a href="git_rule.html" class="sidebar-link">Git开发规则</a></div><div class="sidebar-item"><a href="configuration.html" class="sidebar-link">配置项规则</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">目录</strong><div class="sidebar-item"><a href="index.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="local_server_guide.html" class="mobile-nav-link">本地服务器搭建指南</a></div><div class="sidebar-item"><a href="ui_flow.html" class="mobile-nav-link">UI制作流程</a></div><div class="sidebar-item"><a href="ui_performance.html" class="mobile-nav-link">UGUI优化策略</a></div><div class="sidebar-item"><a href="configdata_tool.html" class="mobile-nav-link current">打表工具与Protobuf代码生成工具使用说明</a></div><div class="sidebar-item"><a href="git_flow.html" class="mobile-nav-link">使用Git管理代码必读</a></div><div class="sidebar-item"><a href="git_rule.html" class="mobile-nav-link">Git开发规则</a></div><div class="sidebar-item"><a href="configuration.html" class="mobile-nav-link">配置项规则</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

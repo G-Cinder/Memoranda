@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/project_specs/ui_flow.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/project_specs/ui_flow.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="新版UI替换流程1.美术(1)通用资源上传SVN(2)导出psd 完成psd之后,美术点击导出脚本，选中IndexicalName,填上Prefix(导出图片名字的前缀),最后点击Export。   最后把导出生成的”xxx.psd-cinder”目录打包发给程序。   2.程序(1) 导入psd 选择PSD2UGUI -&amp;gt; 导入PSd数据，弹出下图界面。按照图上标机顺序操作。   导入成功">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cinder">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/project_specs/ui_flow.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="新版UI替换流程1.美术(1)通用资源上传SVN(2)导出psd 完成psd之后,美术点击导出脚本，选中IndexicalName,填上Prefix(导出图片名字的前缀),最后点击Export。   最后把导出生成的”xxx.psd-cinder”目录打包发给程序。   2.程序(1) 导入psd 选择PSD2UGUI -&amp;gt; 导入PSd数据，弹出下图界面。按照图上标机顺序操作。   导入成功">
+<meta property="og:locale" content="cn">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/psd_export.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/psd2ugui.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/psd2ugui1.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/merge.png">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cinder">
+<meta name="twitter:description" content="新版UI替换流程1.美术(1)通用资源上传SVN(2)导出psd 完成psd之后,美术点击导出脚本，选中IndexicalName,填上Prefix(导出图片名字的前缀),最后点击Export。   最后把导出生成的”xxx.psd-cinder”目录打包发给程序。   2.程序(1) 导入psd 选择PSD2UGUI -&amp;gt; 导入PSd数据，弹出下图界面。按照图上标机顺序操作。   导入成功">
+<meta name="twitter:image" content="https://g-cinder.github.io/Memoranda/project_specs/psd_export.png">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name"></h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/project_specs/ui_flow.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="新版UI替换流程" class="article-heading"><a href="#新版UI替换流程" class="headerlink" title="新版UI替换流程"></a>新版UI替换流程<a class="article-anchor" href="#新版UI替换流程" aria-hidden="true"></a></h2><h3 id="1-美术" class="article-heading"><a href="#1-美术" class="headerlink" title="1.美术"></a>1.美术<a class="article-anchor" href="#1-美术" aria-hidden="true"></a></h3><h4 id="1-通用资源上传SVN" class="article-heading"><a href="#1-通用资源上传SVN" class="headerlink" title="(1)通用资源上传SVN"></a>(1)通用资源上传SVN<a class="article-anchor" href="#1-通用资源上传SVN" aria-hidden="true"></a></h4><h4 id="2-导出psd" class="article-heading"><a href="#2-导出psd" class="headerlink" title="(2)导出psd"></a>(2)导出psd<a class="article-anchor" href="#2-导出psd" aria-hidden="true"></a></h4><ul>
+<li><p>完成psd之后,美术点击导出脚本，选中IndexicalName,填上Prefix(导出图片名字的前缀),最后点击Export。</p>
+<p><img src="psd_export.png" alt="psd_export"></p>
+</li>
+<li><p>最后把导出生成的”xxx.psd-cinder”目录打包发给程序。</p>
+</li>
+</ul>
+<h3 id="2-程序" class="article-heading"><a href="#2-程序" class="headerlink" title="2.程序"></a>2.程序<a class="article-anchor" href="#2-程序" aria-hidden="true"></a></h3><h4 id="1-导入psd" class="article-heading"><a href="#1-导入psd" class="headerlink" title="(1) 导入psd"></a>(1) 导入psd<a class="article-anchor" href="#1-导入psd" aria-hidden="true"></a></h4><ul>
+<li><p>选择PSD2UGUI -&gt; 导入PSd数据，弹出下图界面。按照图上标机顺序操作。</p>
+<p><img src="psd2ugui.png" alt="psd2ugui"></p>
+</li>
+<li><p>导入成功后可以看到下图，选择的程序主界面上增加了由psd生成的UI结构。</p>
+<p><img src="psd2ugui1.png" alt="psd2ugui1"></p>
+</li>
+<li><p>“xxx.psd-cinder”目录下assets资源的私有图片会放入到”Cinder\Assets\Daisy\RawResources\UI\Image”下界面对应的目录下。</p>
+</li>
+<li><p>程序修改前需要跟美术一起设置公共图片,改完后需要将放在私有图片目录下的公共图片删除。</p>
+</li>
+</ul>
+<h4 id="2-合并控件" class="article-heading"><a href="#2-合并控件" class="headerlink" title="(2) 合并控件"></a>(2) 合并控件<a class="article-anchor" href="#2-合并控件" aria-hidden="true"></a></h4><ul>
+<li><p>从程序创建的UI结构中选中一个目标节点,从由psd生成的UI结构一个源节点,点击合并。(选中控件建议使用基础工具栏中的Rect Tool)</p>
+<p><img src="merge.png" alt="merge"></p>
+</li>
+</ul>
+<h4 id="3-合并选项" class="article-heading"><a href="#3-合并选项" class="headerlink" title="(3) 合并选项"></a>(3) 合并选项<a class="article-anchor" href="#3-合并选项" aria-hidden="true"></a></h4><ul>
+<li><p>通用合并器</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> <strong>变换合并器:</strong> 勾选后合并会将源节点的<code>大小</code>和<code>坐标</code>合并至目标节点;<ul>
+<li style="list-style: none"><input type="checkbox" checked> <strong>保持子节点:</strong> 勾选后合并子节点的位置和大小不随父节点变化而变化;</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>文本合并器</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> <strong>文本内容:</strong> 勾选后合并会将源节点的<code>Text(文本内容)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>字体:</strong> 勾选后合并会将源节点的<code>Font(字体)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>字号大小:</strong> 勾选后合并会将源节点的<code>FontSize(字号大小)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>文字颜色:</strong> 勾选后合并会将源节点的<code>Color(文字颜色)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>水平溢出:</strong> 勾选后合并会将源节点的<code>Horizontal Overflow(水平溢出)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>垂直溢出:</strong> 勾选后合并会将源节点的<code>Vertical Overflow(垂直溢出)</code>合并至目标节点;</li>
+</ul>
+</li>
+<li><p>图片合并器</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> <strong>图片:</strong> 勾选后合并会将源节点的<code>Source Image(图片资源sprite)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>图片类型:</strong> 勾选后合并会将源节点的<code>Image Type(图片类型type)</code>合并至目标节点;</li>
+</ul>
+</li>
+<li><p>文本合并器【TextMeshPro】</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> <strong>文本内容:</strong> 勾选后合并会将源节点的<code>Text(文本内容)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>字体:</strong> 勾选后合并会将源节点的<code>Font(字体)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>字号大小:</strong> 勾选后合并会将源节点的<code>FontSize(字号大小)</code>合并至目标节点;</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>文字颜色:</strong> 勾选后合并会将源节点的<code>Color(文字颜色)</code>合并至目标节点;</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-注意事项" class="article-heading"><a href="#4-注意事项" class="headerlink" title="(4) 注意事项"></a>(4) 注意事项<a class="article-anchor" href="#4-注意事项" aria-hidden="true"></a></h4><ul>
+<li>程序在<code>750*1334</code>完成所有控件合并后,需要把分辨率调整为<code>750*1624</code>后查看UI布局是否正常,如有问题需要调整,保证在<code>750*1334</code>和<code>750*1624</code>分辨率下都是正常才行。</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.332Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="local_server_guide.html" class="article-footer-prev" title="本地服务器搭建指南"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="ui_performance.html" class="article-footer-next" title="UGUI优化策略"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新版UI替换流程"><span class="toc-text">新版UI替换流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-美术"><span class="toc-text">1.美术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-通用资源上传SVN"><span class="toc-text">(1)通用资源上传SVN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-导出psd"><span class="toc-text">(2)导出psd</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-程序"><span class="toc-text">2.程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-导入psd"><span class="toc-text">(1) 导入psd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-合并控件"><span class="toc-text">(2) 合并控件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-合并选项"><span class="toc-text">(3) 合并选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-注意事项"><span class="toc-text">(4) 注意事项</span></a></li></ol></li></ol></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">目录</strong><div class="sidebar-item"><a href="index.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="local_server_guide.html" class="sidebar-link">本地服务器搭建指南</a></div><div class="sidebar-item"><a href="ui_flow.html" class="sidebar-link current">UI制作流程</a></div><div class="sidebar-item"><a href="ui_performance.html" class="sidebar-link">UGUI优化策略</a></div><div class="sidebar-item"><a href="configdata_tool.html" class="sidebar-link">打表工具与Protobuf代码生成工具使用说明</a></div><div class="sidebar-item"><a href="git_flow.html" class="sidebar-link">使用Git管理代码必读</a></div><div class="sidebar-item"><a href="git_rule.html" class="sidebar-link">Git开发规则</a></div><div class="sidebar-item"><a href="configuration.html" class="sidebar-link">配置项规则</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">目录</strong><div class="sidebar-item"><a href="index.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="local_server_guide.html" class="mobile-nav-link">本地服务器搭建指南</a></div><div class="sidebar-item"><a href="ui_flow.html" class="mobile-nav-link current">UI制作流程</a></div><div class="sidebar-item"><a href="ui_performance.html" class="mobile-nav-link">UGUI优化策略</a></div><div class="sidebar-item"><a href="configdata_tool.html" class="mobile-nav-link">打表工具与Protobuf代码生成工具使用说明</a></div><div class="sidebar-item"><a href="git_flow.html" class="mobile-nav-link">使用Git管理代码必读</a></div><div class="sidebar-item"><a href="git_rule.html" class="mobile-nav-link">Git开发规则</a></div><div class="sidebar-item"><a href="configuration.html" class="mobile-nav-link">配置项规则</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

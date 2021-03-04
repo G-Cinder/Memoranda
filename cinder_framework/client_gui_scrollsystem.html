@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Scroll System | Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/cinder_framework/client_gui_scrollsystem.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/cinder_framework/client_gui_scrollsystem.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="特色  控件元素循环使用 支持多类型物体 多种排列方式以及滚动方式 支持跳转和原生进度条  使用说明  1、Unity相关  （1）在对应的UI层级下，创建一个空的子物体（2）把ScrollSystem.cs拖拽到空物体上，拖拽完成之后会自动创建所需的其他控件，ScrollRect，Image，mask    等，并且会创建一个名字为Content Transform的子物体作为ScrollRec">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scroll System">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/cinder_framework/client_gui_scrollsystem.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="特色  控件元素循环使用 支持多类型物体 多种排列方式以及滚动方式 支持跳转和原生进度条  使用说明  1、Unity相关  （1）在对应的UI层级下，创建一个空的子物体（2）把ScrollSystem.cs拖拽到空物体上，拖拽完成之后会自动创建所需的其他控件，ScrollRect，Image，mask    等，并且会创建一个名字为Content Transform的子物体作为ScrollRec">
+<meta property="og:locale" content="cn">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529144147.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529144216.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529145447.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529145817.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529150641.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529144147.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529161146.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529161536.png">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scroll System">
+<meta name="twitter:description" content="特色  控件元素循环使用 支持多类型物体 多种排列方式以及滚动方式 支持跳转和原生进度条  使用说明  1、Unity相关  （1）在对应的UI层级下，创建一个空的子物体（2）把ScrollSystem.cs拖拽到空物体上，拖拽完成之后会自动创建所需的其他控件，ScrollRect，Image，mask    等，并且会创建一个名字为Content Transform的子物体作为ScrollRec">
+<meta name="twitter:image" content="https://g-cinder.github.io/Memoranda/assets/framework/scrollsystem_20200529144147.png">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Scroll System</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/cinder_framework/client_gui_scrollsystem.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="特色" class="article-heading"><a href="#特色" class="headerlink" title="特色"></a>特色<a class="article-anchor" href="#特色" aria-hidden="true"></a></h2><hr>
+<ul>
+<li>控件元素循环使用</li>
+<li>支持多类型物体</li>
+<li>多种排列方式以及滚动方式</li>
+<li>支持跳转和原生进度条</li>
+</ul>
+<h2 id="使用说明" class="article-heading"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明<a class="article-anchor" href="#使用说明" aria-hidden="true"></a></h2><hr>
+<blockquote>
+<p>1、Unity相关</p>
+</blockquote>
+<p>（1）在对应的UI层级下，创建一个空的子物体<br>（2）把ScrollSystem.cs拖拽到空物体上，拖拽完成之后会自动创建所需的其他控件，ScrollRect，Image，mask    等，并且会创建一个名字为Content Transform的子物体作为ScrollRect的Content</p>
+<p><img src="..\assets\framework\scrollsystem_20200529144147.png" alt="微信截图_20200529144147"></p>
+<p><img src="..\assets\framework\scrollsystem_20200529144216.png" alt="微信截图_20200529144216"></p>
+<p>（3）调整ScrollSystem所在节点的宽高至理想大小，在content Transform节点下创建好所需要的界面元素，可    以一个，也可以是多个。调整界面元素至理想大小，手动点击ScrollSystem上的”子物体手动刷新“，来预览最终的排列效果。需要注意的是，最后留在这个Content Transform节点下的子物体，相同物体只留下一个作为原始模板</p>
+<p><img src="..\assets\framework\scrollsystem_20200529145447.png" alt="微信截图_20200529145447"></p>
+<p><img src="..\assets\framework\scrollsystem_20200529145817.png" alt="微信截图_20200529145817"></p>
+<p>（4）元素排列顺序取决于ScrollSystem上面的StartCorner和ScrollDirection两个参数，基础规则为：如果当前行或者列，能容纳下一个元素，那么会紧跟上一个元素，否则会另起新行或者列进行排列。另外，也可以根据需要，在元素上添加ScrollLayout.cs来决定是否主动另起新行，并且可以设置在新行居中，左对齐（上对齐），右对齐（下对齐）</p>
+<p><img src="..\assets\framework\scrollsystem_20200529150641.png" alt="微信截图_20200529150641"></p>
+<p>（5）至此，在Unity里的基础设置就告一段落了。关于ScrollSystem上面的一些参数的具体含义，以及ScrollLayout的一些其他用法，后面会继续介绍，这里只专注于满足基本流程的流程</p>
+<hr>
+<blockquote>
+<p>2、Lua相关</p>
+</blockquote>
+<p>（1）在Main.lua中进行注册（如果满足命名规则可省略），RegistSubView后面第一个参数表示的是Content Transform下面元素的名字，第二个参数表示这个元素关联的Lua脚本<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">IUIViewProvider:RegisterSubView(<span class="string">'ServerListBaseItem'</span>, ServerListBaseItemComponent)</span><br></pre></td></tr></table></figure></p>
+<p>（2）如果元素的GameObject的名字为xxx，元素对应的luaComponent的名字是xxxComponent，那么第一步可以省略，在系统中会自动完成这一步，不需要手动关联</p>
+<p>（3）元素对应的LuaComponent的标准模板如下<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> M = class(<span class="string">"ChatMessageComponent"</span>, UIScrollComponent)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnOpen</span><span class="params">()</span></span></span><br><span class="line">    self.txt_Label = self:GetText(<span class="string">'Label'</span>)</span><br><span class="line">    self.bt_Check = self:GetButton(<span class="string">'Check'</span>)</span><br><span class="line">    self.bt_Check:OnClick(<span class="function"><span class="keyword">function</span><span class="params">()</span></span> </span><br><span class="line">        <span class="comment">--可以调用GetHandle来获知自身的Handle</span></span><br><span class="line">    	sekf:Notify(<span class="string">'Check'</span>, self:GetHandle())    </span><br><span class="line">    <span class="keyword">end</span>)</span><br><span class="line">    self.scrollLayout = self:GetView():GetComponent(<span class="string">'ScrollLayout'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnClose</span><span class="params">()</span></span></span><br><span class="line">    self.txt_Label = <span class="literal">nil</span></span><br><span class="line">    self.bt_Check = <span class="literal">nil</span></span><br><span class="line">    self.scrollLayout = <span class="literal">nil</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnRefresh</span><span class="params">(data)</span></span></span><br><span class="line">    self.txt_Label:SetTextValue(data.msg)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnGetSize</span><span class="params">(data)</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>,self.scrollLayout:GetHeightByStr(data.msg)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">ChatMessageComponent = M</span><br><span class="line"><span class="keyword">return</span> M</span><br></pre></td></tr></table></figure></p>
+<p>（4）所有循环滚动的Component继承自UIScrollComponent，OnOpen里面写具体Component的获取，OnClose里面设置为空，OnRefresh里面写具体的界面元素的读取，OnGetSize表示动态设置Component的宽高</p>
+<p>（5）UICtrl层具体的使用模板如下</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="comment">--增</span></span><br><span class="line"><span class="keyword">local</span> handle = self.ss_ChatList:Add(<span class="string">'ChatMessage'</span>,&#123;msg=<span class="string">'我是第一段聊天'</span>&#125;)</span><br><span class="line"><span class="comment">--改</span></span><br><span class="line">self.ss_ChatList:Set(handle,&#123;msg=<span class="string">'要修改的文字'</span>&#125;)</span><br><span class="line"><span class="comment">--插</span></span><br><span class="line"><span class="keyword">local</span> handle2 = self.ss_ChatList:Insert(handle,&#123;msg=<span class="string">'我是被插入的聊天'</span>&#125;)</span><br><span class="line"><span class="comment">--删</span></span><br><span class="line">self.ss_ChatList:Remove(handle2)</span><br><span class="line"><span class="comment">--跳</span></span><br><span class="line">self.ss_ChatList:ScrollTo(handle,<span class="literal">true</span>)</span><br><span class="line">self.ss_ChatList:ScrollToBegin(<span class="literal">true</span>)</span><br><span class="line">self.ss_ChatList:ScrollToEnd(<span class="literal">true</span>)</span><br><span class="line"><span class="comment">--查</span></span><br><span class="line"><span class="keyword">local</span> data = self.ss_ChatList:Get(handle)</span><br><span class="line"><span class="built_in">print</span>(data.msg)</span><br><span class="line"><span class="comment">--'我是第一段聊天'</span></span><br><span class="line"><span class="comment">--清</span></span><br><span class="line">self.ss_ChatList:Clear()</span><br></pre></td></tr></table></figure>
+<p>（6）至此，lua层的操作都覆盖了</p>
+<h2 id="其他一些内容" class="article-heading"><a href="#其他一些内容" class="headerlink" title="其他一些内容"></a>其他一些内容<a class="article-anchor" href="#其他一些内容" aria-hidden="true"></a></h2><hr>
+<blockquote>
+<p>1、ScrollSystem上具体参数说明</p>
+</blockquote>
+<p><img src="..\assets\framework\scrollsystem_20200529144147.png" alt="微信截图_20200529144147"></p>
+<p>（1）centerred：元素默认会居中排列</p>
+<p>（2）border：元素距离外边框的距离</p>
+<p>（3）spacing：元素和元素之间的间隔</p>
+<p>（4）resetNormalizedPosition：在初次Add或者Clear之后ScrollSystem会调整到的位置</p>
+<p>（5）JumpToSpeed：跳转的速度</p>
+<p>（6）registPoolCount：每个元素初次注册的对象池数量</p>
+<p>（7）enableScrollOnlyWhenOutOfBounds：只有在元素内容超出外边框的时候才会有滚动功能</p>
+<p>（8）scrollDirection：滚动方向，垂直或者水平</p>
+<hr>
+<blockquote>
+<p>2、如何最快速对接比如聊天这种动态高度的元素</p>
+</blockquote>
+<p>（1）这里提供了两个ScrollLayout的子集，分别对应Text文字和TextMeshPro文字。把需要匹配的文字拖入FitLabel里面</p>
+<p><img src="..\assets\framework\scrollsystem_20200529161146.png" alt="微信截图_20200529161146"></p>
+<p><img src="..\assets\framework\scrollsystem_20200529161536.png" alt="微信截图_20200529161536"></p>
+<p>（2）确保你的luaComponent里面写入了如下内容<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OnOpen</span><span class="params">()</span></span></span><br><span class="line">	self.scrollLayout = self:GetView():GetComponent(<span class="string">'ScrollLayout'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnGetSize</span><span class="params">(data)</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>,self.scrollLayout:GetHeightByStr(data.msg)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.312Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="server_summary.html" class="article-footer-next" title="概述"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#特色"><span class="toc-text">特色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用说明"><span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他一些内容"><span class="toc-text">其他一些内容</span></a></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">后端</strong><div class="sidebar-item"><a href="server_summary.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="server_mini.html" class="sidebar-link">如何开始</a></div><div class="sidebar-item"><a href="server_user_guild.html" class="sidebar-link">通用功能使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_chatapi.html" class="sidebar-link">聊天API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_mailapi.html" class="sidebar-link">邮件API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_matchpapi.html" class="sidebar-link">匹配API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_cs.html" class="sidebar-link">CS模式服务器开发指南</a></div><div class="sidebar-item"><a href="server_user_guild_frame_sync.html" class="sidebar-link">帧同步模式服务器开发指南</a></div></div><div class="sidebar-item"><strong class="sidebar-title">前端</strong><div class="sidebar-item"><a href="client_summary.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="client_mini.html" class="sidebar-link">如何开始</a></div><div class="sidebar-item"><a href="client_service.html" class="sidebar-link">服务</a></div><div class="sidebar-item"><a href="client_lua_basic.html" class="sidebar-link">Lua 基础</a></div><div class="sidebar-item"><a href="client_network.html" class="sidebar-link">Network 网络交互服务</a></div><div class="sidebar-item"><a href="client_resourcesmanager.html" class="sidebar-link">Resource 资源管理服务</a></div><div class="sidebar-item"><strong class="sidebar-title">GUI 图形界面</strong><div class="sidebar-item"><a href="client_gui_summary.html" class="sidebar-link">GUI 系统概述</a></div><div class="sidebar-item"><a href="client_gui_components.html" class="sidebar-link">GUI 组件</a></div><div class="sidebar-item"><a href="client_gui_scrollsystem.html" class="sidebar-link current">Scroll System</a></div></div><div class="sidebar-item"><a href="client_statemachine_ui.html" class="sidebar-link">状态机 & UI</a></div><div class="sidebar-item"><a href="client_lua_techguide.html" class="sidebar-link">Lua 开发规范</a></div><div class="sidebar-item"><a href="client_user_guild_frame_sync.html" class="sidebar-link">帧帧同步类型前端开发指南</a></div></div><div class="sidebar-item"><strong class="sidebar-title">工具链</strong><div class="sidebar-item"><a href="configdata_tool.html" class="sidebar-link">打表工具与Protobuf工具</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">后端</strong><div class="sidebar-item"><a href="server_summary.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="server_mini.html" class="mobile-nav-link">如何开始</a></div><div class="sidebar-item"><a href="server_user_guild.html" class="mobile-nav-link">通用功能使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_chatapi.html" class="mobile-nav-link">聊天API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_mailapi.html" class="mobile-nav-link">邮件API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_matchpapi.html" class="mobile-nav-link">匹配API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_cs.html" class="mobile-nav-link">CS模式服务器开发指南</a></div><div class="sidebar-item"><a href="server_user_guild_frame_sync.html" class="mobile-nav-link">帧同步模式服务器开发指南</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">前端</strong><div class="sidebar-item"><a href="client_summary.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="client_mini.html" class="mobile-nav-link">如何开始</a></div><div class="sidebar-item"><a href="client_service.html" class="mobile-nav-link">服务</a></div><div class="sidebar-item"><a href="client_lua_basic.html" class="mobile-nav-link">Lua 基础</a></div><div class="sidebar-item"><a href="client_network.html" class="mobile-nav-link">Network 网络交互服务</a></div><div class="sidebar-item"><a href="client_resourcesmanager.html" class="mobile-nav-link">Resource 资源管理服务</a></div><div class="sidebar-item"><strong class="mobile-nav-title">GUI 图形界面</strong><div class="sidebar-item"><a href="client_gui_summary.html" class="mobile-nav-link">GUI 系统概述</a></div><div class="sidebar-item"><a href="client_gui_components.html" class="mobile-nav-link">GUI 组件</a></div><div class="sidebar-item"><a href="client_gui_scrollsystem.html" class="mobile-nav-link current">Scroll System</a></div></div><div class="sidebar-item"><a href="client_statemachine_ui.html" class="mobile-nav-link">状态机 & UI</a></div><div class="sidebar-item"><a href="client_lua_techguide.html" class="mobile-nav-link">Lua 开发规范</a></div><div class="sidebar-item"><a href="client_user_guild_frame_sync.html" class="mobile-nav-link">帧帧同步类型前端开发指南</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">工具链</strong><div class="sidebar-item"><a href="configdata_tool.html" class="mobile-nav-link">打表工具与Protobuf工具</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

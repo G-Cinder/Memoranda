@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>客户端代码规范 | Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/code_specs/client_code_specs.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/code_specs/client_code_specs.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="本文详细规范了客户端的代码规范。 缩进采用统一的缩进规则。 CSharpLua文件名采用大驼峰命名规则，例如 “MyFile.lua”。 类命名虽然Cinder的Lua类名只是一个字符串，但也需要符合命名规范。采用大驼峰命名规则，名词属性。 local M = class(&quot;MyClass&quot;)return M 函数命名采用大驼峰命名规则，动词属性。 function M:DoSomething()">
+<meta property="og:type" content="website">
+<meta property="og:title" content="客户端代码规范">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/code_specs/client_code_specs.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="本文详细规范了客户端的代码规范。 缩进采用统一的缩进规则。 CSharpLua文件名采用大驼峰命名规则，例如 “MyFile.lua”。 类命名虽然Cinder的Lua类名只是一个字符串，但也需要符合命名规范。采用大驼峰命名规则，名词属性。 local M = class(&quot;MyClass&quot;)return M 函数命名采用大驼峰命名规则，动词属性。 function M:DoSomething()">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="客户端代码规范">
+<meta name="twitter:description" content="本文详细规范了客户端的代码规范。 缩进采用统一的缩进规则。 CSharpLua文件名采用大驼峰命名规则，例如 “MyFile.lua”。 类命名虽然Cinder的Lua类名只是一个字符串，但也需要符合命名规范。采用大驼峰命名规则，名词属性。 local M = class(&quot;MyClass&quot;)return M 函数命名采用大驼峰命名规则，动词属性。 function M:DoSomething()">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">客户端代码规范</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/code_specs/client_code_specs.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <p>本文详细规范了客户端的代码规范。</p>
+<h2 id="缩进" class="article-heading"><a href="#缩进" class="headerlink" title="缩进"></a>缩进<a class="article-anchor" href="#缩进" aria-hidden="true"></a></h2><p>采用统一的缩进规则。</p>
+<h2 id="CSharp" class="article-heading"><a href="#CSharp" class="headerlink" title="CSharp"></a>CSharp<a class="article-anchor" href="#CSharp" aria-hidden="true"></a></h2><h2 id="Lua" class="article-heading"><a href="#Lua" class="headerlink" title="Lua"></a>Lua<a class="article-anchor" href="#Lua" aria-hidden="true"></a></h2><h3 id="文件名" class="article-heading"><a href="#文件名" class="headerlink" title="文件名"></a>文件名<a class="article-anchor" href="#文件名" aria-hidden="true"></a></h3><p>采用<code>大驼峰</code>命名规则，例如 “MyFile.lua”。</p>
+<h3 id="类命名" class="article-heading"><a href="#类命名" class="headerlink" title="类命名"></a>类命名<a class="article-anchor" href="#类命名" aria-hidden="true"></a></h3><p>虽然<strong>Cinder</strong>的<strong>Lua</strong>类名只是一个字符串，但也需要符合命名规范。采用<code>大驼峰</code>命名规则，名词属性。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> M = class(<span class="string">"MyClass"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> M</span><br></pre></td></tr></table></figure>
+<h3 id="函数命名" class="article-heading"><a href="#函数命名" class="headerlink" title="函数命名"></a>函数命名<a class="article-anchor" href="#函数命名" aria-hidden="true"></a></h3><p>采用<code>大驼峰</code>命名规则，动词属性。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:DoSomething</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="私有函数" class="article-heading"><a href="#私有函数" class="headerlink" title="私有函数"></a>私有函数<a class="article-anchor" href="#私有函数" aria-hidden="true"></a></h4><p>私有函数需要额外以“_”开头。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:_DoPrivateThing</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="成员变量" class="article-heading"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量<a class="article-anchor" href="#成员变量" aria-hidden="true"></a></h3><blockquote>
+<p>NOTE: 除了框架结构上的需求，其余情况下不允许直接访问成员变量。</p>
+</blockquote>
+<p>成员变量以“_”开头，采用<code>小驼峰</code>命名规则。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:ctor</span><span class="params">()</span></span></span><br><span class="line">    self._name = <span class="string">""</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="临时变量，参数" class="article-heading"><a href="#临时变量，参数" class="headerlink" title="临时变量，参数"></a>临时变量，参数<a class="article-anchor" href="#临时变量，参数" aria-hidden="true"></a></h3><p>采用<code>小驼峰</code>命名规则。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:DoSomething</span><span class="params">(x, y)</span></span></span><br><span class="line">    <span class="keyword">local</span> theResult = x + y;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="类" class="article-heading"><a href="#类" class="headerlink" title="类"></a>类<a class="article-anchor" href="#类" aria-hidden="true"></a></h3><p>使用<strong>Cinder</strong>提供的<strong>class</strong>关键字。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> M = class(<span class="string">"MyClass"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> M</span><br></pre></td></tr></table></figure>
+<h3 id="接口" class="article-heading"><a href="#接口" class="headerlink" title="接口"></a>接口<a class="article-anchor" href="#接口" aria-hidden="true"></a></h3><p>使用<strong>Cinder</strong>提供的<strong>interface</strong>关键字。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> M = interface(<span class="string">"MyInterface"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> M</span><br></pre></td></tr></table></figure>
+<h3 id="类实现接口" class="article-heading"><a href="#类实现接口" class="headerlink" title="类实现接口"></a>类实现接口<a class="article-anchor" href="#类实现接口" aria-hidden="true"></a></h3><blockquote>
+<p>NOTE: 使用<strong>Cinder</strong>提供的<strong>include</strong>关键字来加载其他文件。</p>
+</blockquote>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> MyInterface = include(<span class="string">"MyInterface"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> M = class(<span class="string">"MyClass"</span>).implement(MyInterface)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> M</span><br></pre></td></tr></table></figure>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.312Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="code_style.html" class="article-footer-prev" title="代码规范"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="statemachine.html" class="article-footer-next" title="分层状态机在客户端的使用"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#缩进"><span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSharp"><span class="toc-text">CSharp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lua"><span class="toc-text">Lua</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件名"><span class="toc-text">文件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类命名"><span class="toc-text">类命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数命名"><span class="toc-text">函数命名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#私有函数"><span class="toc-text">私有函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员变量"><span class="toc-text">成员变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#临时变量，参数"><span class="toc-text">临时变量，参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类"><span class="toc-text">类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类实现接口"><span class="toc-text">类实现接口</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">通用</strong><div class="sidebar-item"><a href="code_style.html" class="sidebar-link">代码规范</a></div></div><div class="sidebar-item"><strong class="sidebar-title">前端</strong><div class="sidebar-item"><a href="client_code_specs.html" class="sidebar-link current">客户端代码规范</a></div><div class="sidebar-item"><a href="statemachine.html" class="sidebar-link">分层状态机在客户端的使用</a></div><div class="sidebar-item"><a href="ui_module.html" class="sidebar-link">UI开发规范</a></div><div class="sidebar-item"><a href="scroll_view.html" class="sidebar-link">Scrollview说明</a></div><div class="sidebar-item"><a href="reconnect.html" class="sidebar-link">断线重连</a></div></div><div class="sidebar-item"><strong class="sidebar-title">后端</strong><div class="sidebar-item"><a href="server_code_specs.html" class="sidebar-link">服务器代码规范</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">通用</strong><div class="sidebar-item"><a href="code_style.html" class="mobile-nav-link">代码规范</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">前端</strong><div class="sidebar-item"><a href="client_code_specs.html" class="mobile-nav-link current">客户端代码规范</a></div><div class="sidebar-item"><a href="statemachine.html" class="mobile-nav-link">分层状态机在客户端的使用</a></div><div class="sidebar-item"><a href="ui_module.html" class="mobile-nav-link">UI开发规范</a></div><div class="sidebar-item"><a href="scroll_view.html" class="mobile-nav-link">Scrollview说明</a></div><div class="sidebar-item"><a href="reconnect.html" class="mobile-nav-link">断线重连</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">后端</strong><div class="sidebar-item"><a href="server_code_specs.html" class="mobile-nav-link">服务器代码规范</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/project_specs/local_server_guide.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/project_specs/local_server_guide.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="服务器搭建文档一、注意事项执行以下步骤前请先把之前在本机安装过的redis、mongodb、etcd、nsq卸载或禁止运行。     二、git拉取服务器代码1、git账号：名字全拼拼音。密码：123456 (账号没有或者密码不对，找王晓军)。 2、git地址：http://gitlab.ztgame.com/Chaos/Daisy.git 3、本地路径注意事项注意不要包含中文路径 三、安装服务器">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cinder">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/project_specs/local_server_guide.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="服务器搭建文档一、注意事项执行以下步骤前请先把之前在本机安装过的redis、mongodb、etcd、nsq卸载或禁止运行。     二、git拉取服务器代码1、git账号：名字全拼拼音。密码：123456 (账号没有或者密码不对，找王晓军)。 2、git地址：http://gitlab.ztgame.com/Chaos/Daisy.git 3、本地路径注意事项注意不要包含中文路径 三、安装服务器">
+<meta property="og:locale" content="cn">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/5.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/6.jpg">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/7.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/8.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/9.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/1.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/2.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/3.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/4.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/11.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/10.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/12.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/13.png">
+<meta property="og:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/14.png">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cinder">
+<meta name="twitter:description" content="服务器搭建文档一、注意事项执行以下步骤前请先把之前在本机安装过的redis、mongodb、etcd、nsq卸载或禁止运行。     二、git拉取服务器代码1、git账号：名字全拼拼音。密码：123456 (账号没有或者密码不对，找王晓军)。 2、git地址：http://gitlab.ztgame.com/Chaos/Daisy.git 3、本地路径注意事项注意不要包含中文路径 三、安装服务器">
+<meta name="twitter:image" content="https://g-cinder.github.io/Memoranda/project_specs/server_res/5.png">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name"></h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/project_specs/local_server_guide.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h1 id="服务器搭建文档" class="article-heading"><a href="#服务器搭建文档" class="headerlink" title="服务器搭建文档"></a>服务器搭建文档<a class="article-anchor" href="#服务器搭建文档" aria-hidden="true"></a></h1><h2 id="一、注意事项" class="article-heading"><a href="#一、注意事项" class="headerlink" title="一、注意事项"></a>一、注意事项<a class="article-anchor" href="#一、注意事项" aria-hidden="true"></a></h2><p>执行以下步骤前请先把之前在本机安装过的redis、mongodb、etcd、nsq卸载或禁止运行。    </p>
+<h2 id="二、git拉取服务器代码" class="article-heading"><a href="#二、git拉取服务器代码" class="headerlink" title="二、git拉取服务器代码"></a>二、git拉取服务器代码<a class="article-anchor" href="#二、git拉取服务器代码" aria-hidden="true"></a></h2><h3 id="1、git账号：" class="article-heading"><a href="#1、git账号：" class="headerlink" title="1、git账号："></a>1、git账号：<a class="article-anchor" href="#1、git账号：" aria-hidden="true"></a></h3><p>名字全拼拼音。密码：123456 (账号没有或者密码不对，找王晓军)。</p>
+<h3 id="2、git地址：" class="article-heading"><a href="#2、git地址：" class="headerlink" title="2、git地址："></a>2、git地址：<a class="article-anchor" href="#2、git地址：" aria-hidden="true"></a></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://gitlab.ztgame.com/Chaos/Daisy.git</span><br></pre></td></tr></table></figure>
+<h3 id="3、本地路径注意事项" class="article-heading"><a href="#3、本地路径注意事项" class="headerlink" title="3、本地路径注意事项"></a>3、本地路径注意事项<a class="article-anchor" href="#3、本地路径注意事项" aria-hidden="true"></a></h3><p>注意不要包含中文路径</p>
+<h2 id="三、安装服务器依赖环境" class="article-heading"><a href="#三、安装服务器依赖环境" class="headerlink" title="三、安装服务器依赖环境"></a>三、安装服务器依赖环境<a class="article-anchor" href="#三、安装服务器依赖环境" aria-hidden="true"></a></h2><h3 id="1、本机开启Intel虚拟化技术" class="article-heading"><a href="#1、本机开启Intel虚拟化技术" class="headerlink" title="1、本机开启Intel虚拟化技术"></a>1、本机开启Intel虚拟化技术<a class="article-anchor" href="#1、本机开启Intel虚拟化技术" aria-hidden="true"></a></h3><ol>
+<li>按键盘Ctrl+Alt+Del，打开任务管理器 - 性能选项卡，检查虚拟化技术是否已启用，如果已启用则跳过下面第2步：<br><img src="server_res\5.png" alt></li>
+<li>重启电脑，疯狂按键盘Del键，进入电脑bios界面，一般在Cpu设置下会有一个Intel虚拟化技术开关，洋文Intel VT（Virtualization Technology），开启该选项后保存设置退出即可。<br><img src="server_res\6.jpg" alt></li>
+</ol>
+<h3 id="2、获取服务器依赖软件" class="article-heading"><a href="#2、获取服务器依赖软件" class="headerlink" title="2、获取服务器依赖软件"></a>2、获取服务器依赖软件<a class="article-anchor" href="#2、获取服务器依赖软件" aria-hidden="true"></a></h3><p>访问共享目录，拷贝以下目录下所有安装文件至本地，用户名：res，密码：res<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\\192.168.150.89\resources\服务器依赖\</span><br></pre></td></tr></table></figure></p>
+<h3 id="3、安装Go语言环境" class="article-heading"><a href="#3、安装Go语言环境" class="headerlink" title="3、安装Go语言环境"></a>3、安装Go语言环境<a class="article-anchor" href="#3、安装Go语言环境" aria-hidden="true"></a></h3><p>执行go1.14.windows-amd64.msi，一路点击下一步（Next）直到安装完毕。</p>
+<h3 id="4、安装Hyper-v" class="article-heading"><a href="#4、安装Hyper-v" class="headerlink" title="4、安装Hyper-v"></a>4、安装Hyper-v<a class="article-anchor" href="#4、安装Hyper-v" aria-hidden="true"></a></h3><ol>
+<li>打开 控制面板 - 程序<br><img src="server_res\7.png" alt></li>
+<li>点击 启用/关闭Windows功能<br><img src="server_res\8.png" alt></li>
+<li>勾选Hyper-V选项 - 确定<br><img src="server_res\9.png" alt></li>
+<li>重新启动电脑</li>
+</ol>
+<h3 id="5、安装Docker" class="article-heading"><a href="#5、安装Docker" class="headerlink" title="5、安装Docker"></a>5、安装Docker<a class="article-anchor" href="#5、安装Docker" aria-hidden="true"></a></h3><ol>
+<li>执行Docker Desktop Installer.exe，一路点击下一步（Next）直到安装完毕。</li>
+<li>安装完成后在桌面右下角托盘处，会出现一个小鲸鱼图标：<br><img src="server_res\1.png" alt><br>右击该图标，点击Setting：<br><img src="server_res\2.png" alt><br>弹出以下界面，点击Docker Engine按钮，将以下内容拷入编辑框，点击Apply&amp;Restart按钮：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;http://hub-mirror.c.163.com&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;insecure-registries&quot;: [],</span><br><span class="line">  &quot;debug&quot;: true,</span><br><span class="line">  &quot;experimental&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="server_res\3.png" alt></p>
+<ol start="3">
+<li>等待docker重启完毕，桌面右下角会弹出提示：<br><img src="server_res\4.png" alt></li>
+</ol>
+<h2 id="四、修改配置" class="article-heading"><a href="#四、修改配置" class="headerlink" title="四、修改配置"></a>四、修改配置<a class="article-anchor" href="#四、修改配置" aria-hidden="true"></a></h2><h3 id="1、修改服务器配置" class="article-heading"><a href="#1、修改服务器配置" class="headerlink" title="1、修改服务器配置"></a>1、修改服务器配置<a class="article-anchor" href="#1、修改服务器配置" aria-hidden="true"></a></h3><ol>
+<li><p>进入服务器Cinder_Server\bin目录，打开server.json：<br><img src="server_res\11.png" alt></p>
+</li>
+<li><p>修改此处IP地址为本机ip：<br><img src="server_res\10.png" alt></p>
+</li>
+</ol>
+<h3 id="2、修改客户端配置（可选）" class="article-heading"><a href="#2、修改客户端配置（可选）" class="headerlink" title="2、修改客户端配置（可选）"></a>2、修改客户端配置（可选）<a class="article-anchor" href="#2、修改客户端配置（可选）" aria-hidden="true"></a></h3><p>一般情况下本机测试，只需要在客户端登录时选择 - 本地服务器 即可，如果需要连接别人服务器，那么按如下步骤修改客户端配置：</p>
+<ol>
+<li>进入客户端Cinder\Assets\Daisy\RawResources\Lua\Datas\Configs目录，打开CommonConfig.lua：<br><img src="server_res\12.png" alt></li>
+<li>修改需要连接的对方服务器IP地址，或者拷贝一行新增一条，注意符号“[]”内部的ID必须是连续的：<br><img src="server_res\13.png" alt></li>
+</ol>
+<h2 id="五、启动服务器" class="article-heading"><a href="#五、启动服务器" class="headerlink" title="五、启动服务器"></a>五、启动服务器<a class="article-anchor" href="#五、启动服务器" aria-hidden="true"></a></h2><h3 id="1、服务器脚本路径" class="article-heading"><a href="#1、服务器脚本路径" class="headerlink" title="1、服务器脚本路径"></a>1、服务器脚本路径<a class="article-anchor" href="#1、服务器脚本路径" aria-hidden="true"></a></h3><p>所有的服务器脚本均在以下两个目录：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cinder_Server\src\Daisy</span><br><span class="line">Cinder_Server\</span><br></pre></td></tr></table></figure></p>
+<p>脚本功能如下：</p>
+<table>
+<thead>
+<tr>
+<th>脚本名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>build.bat</td>
+<td>服务器编译脚本</td>
+</tr>
+<tr>
+<td>build_debug.bat</td>
+<td>服务器编译脚本（debug版）</td>
+</tr>
+<tr>
+<td>docker_install.bat</td>
+<td>docker服务安装脚本</td>
+</tr>
+<tr>
+<td>docker_start.bat</td>
+<td>docker服务启动脚本</td>
+</tr>
+<tr>
+<td>docker_stop.bat</td>
+<td>docker服务停止脚本</td>
+</tr>
+<tr>
+<td>docker_uninstall.bat</td>
+<td>docker服务卸载脚本</td>
+</tr>
+<tr>
+<td>start.bat</td>
+<td>服务器启动脚本</td>
+</tr>
+<tr>
+<td>stop.bat</td>
+<td>服务器停止脚本</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2、安装服务器plugin" class="article-heading"><a href="#2、安装服务器plugin" class="headerlink" title="2、安装服务器plugin"></a>2、安装服务器plugin<a class="article-anchor" href="#2、安装服务器plugin" aria-hidden="true"></a></h3><ol>
+<li>进入以下目录<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cinder_Server\Server\src\Cinder\plugin\navmesh</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>执行脚本install.bat</p>
+<ol start="2">
+<li>进入以下目录<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cinder_Server\Server\src\Cinder\plugin\physxgo</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>执行脚本install_debug.bat</p>
+<h3 id="3、启动服务器" class="article-heading"><a href="#3、启动服务器" class="headerlink" title="3、启动服务器"></a>3、启动服务器<a class="article-anchor" href="#3、启动服务器" aria-hidden="true"></a></h3><ol>
+<li>首次启动服务器前，必须先执行docker_install.bat安装docker服务，之后就无需安装了。</li>
+<li>点击脚本start.bat就可以启动服务器了，目前脚本会启动Login、Agent、Game、Battle、DBAgent、Center共6个进程，启动后检查进程数量是否正确，并且在终端是否打印“i’m alive”。<br><img src="server_res\14.png" alt></li>
+</ol>
+<h3 id="4、停止服务器" class="article-heading"><a href="#4、停止服务器" class="headerlink" title="4、停止服务器"></a>4、停止服务器<a class="article-anchor" href="#4、停止服务器" aria-hidden="true"></a></h3><p>点击脚本stop.bat就可以停止服务器了。</p>
+<h3 id="5、其他注意事项" class="article-heading"><a href="#5、其他注意事项" class="headerlink" title="5、其他注意事项"></a>5、其他注意事项<a class="article-anchor" href="#5、其他注意事项" aria-hidden="true"></a></h3><ol>
+<li>服务器宕机后，终端不会挂掉，发现宕机问题时从终端拷贝信息发送给服务器开发人员定位。</li>
+<li>dock服务安装后会占用一定系统资源，如果不想资源被占用，那么可以点击docker_stop.bat停止docker服务，以后启动服务器前先点击docker_start.bat启动docker服务即可。</li>
+</ol>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.312Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="index.html" class="article-footer-prev" title="概述"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="ui_flow.html" class="article-footer-next" title="UI制作流程"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器搭建文档"><span class="toc-text">服务器搭建文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、注意事项"><span class="toc-text">一、注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、git拉取服务器代码"><span class="toc-text">二、git拉取服务器代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、git账号："><span class="toc-text">1、git账号：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、git地址："><span class="toc-text">2、git地址：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、本地路径注意事项"><span class="toc-text">3、本地路径注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、安装服务器依赖环境"><span class="toc-text">三、安装服务器依赖环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、本机开启Intel虚拟化技术"><span class="toc-text">1、本机开启Intel虚拟化技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、获取服务器依赖软件"><span class="toc-text">2、获取服务器依赖软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、安装Go语言环境"><span class="toc-text">3、安装Go语言环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、安装Hyper-v"><span class="toc-text">4、安装Hyper-v</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、安装Docker"><span class="toc-text">5、安装Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、修改配置"><span class="toc-text">四、修改配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、修改服务器配置"><span class="toc-text">1、修改服务器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、修改客户端配置（可选）"><span class="toc-text">2、修改客户端配置（可选）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、启动服务器"><span class="toc-text">五、启动服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、服务器脚本路径"><span class="toc-text">1、服务器脚本路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、安装服务器plugin"><span class="toc-text">2、安装服务器plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、启动服务器"><span class="toc-text">3、启动服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、停止服务器"><span class="toc-text">4、停止服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、其他注意事项"><span class="toc-text">5、其他注意事项</span></a></li></ol></li></ol></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">目录</strong><div class="sidebar-item"><a href="index.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="local_server_guide.html" class="sidebar-link current">本地服务器搭建指南</a></div><div class="sidebar-item"><a href="ui_flow.html" class="sidebar-link">UI制作流程</a></div><div class="sidebar-item"><a href="ui_performance.html" class="sidebar-link">UGUI优化策略</a></div><div class="sidebar-item"><a href="configdata_tool.html" class="sidebar-link">打表工具与Protobuf代码生成工具使用说明</a></div><div class="sidebar-item"><a href="git_flow.html" class="sidebar-link">使用Git管理代码必读</a></div><div class="sidebar-item"><a href="git_rule.html" class="sidebar-link">Git开发规则</a></div><div class="sidebar-item"><a href="configuration.html" class="sidebar-link">配置项规则</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">目录</strong><div class="sidebar-item"><a href="index.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="local_server_guide.html" class="mobile-nav-link current">本地服务器搭建指南</a></div><div class="sidebar-item"><a href="ui_flow.html" class="mobile-nav-link">UI制作流程</a></div><div class="sidebar-item"><a href="ui_performance.html" class="mobile-nav-link">UGUI优化策略</a></div><div class="sidebar-item"><a href="configdata_tool.html" class="mobile-nav-link">打表工具与Protobuf代码生成工具使用说明</a></div><div class="sidebar-item"><a href="git_flow.html" class="mobile-nav-link">使用Git管理代码必读</a></div><div class="sidebar-item"><a href="git_rule.html" class="mobile-nav-link">Git开发规则</a></div><div class="sidebar-item"><a href="configuration.html" class="mobile-nav-link">配置项规则</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

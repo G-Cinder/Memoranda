@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/cinder_framework/server_user_guild_frame_sync.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/cinder_framework/server_user_guild_frame_sync.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="介绍如何用Cinder框架做 帧同步类型的游戏">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cinder">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/cinder_framework/server_user_guild_frame_sync.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="介绍如何用Cinder框架做 帧同步类型的游戏">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cinder">
+<meta name="twitter:description" content="介绍如何用Cinder框架做 帧同步类型的游戏">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name"></h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/cinder_framework/server_user_guild_frame_sync.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <p>介绍如何用Cinder框架做 帧同步类型的游戏</p>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.312Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="server_user_guild_cs.html" class="article-footer-prev" title="CS模式服务器开发指南"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="client_summary.html" class="article-footer-next" title="概述"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">后端</strong><div class="sidebar-item"><a href="server_summary.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="server_mini.html" class="sidebar-link">如何开始</a></div><div class="sidebar-item"><a href="server_user_guild.html" class="sidebar-link">通用功能使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_chatapi.html" class="sidebar-link">聊天API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_mailapi.html" class="sidebar-link">邮件API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_matchpapi.html" class="sidebar-link">匹配API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_cs.html" class="sidebar-link">CS模式服务器开发指南</a></div><div class="sidebar-item"><a href="server_user_guild_frame_sync.html" class="sidebar-link current">帧同步模式服务器开发指南</a></div></div><div class="sidebar-item"><strong class="sidebar-title">前端</strong><div class="sidebar-item"><a href="client_summary.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="client_mini.html" class="sidebar-link">如何开始</a></div><div class="sidebar-item"><a href="client_service.html" class="sidebar-link">服务</a></div><div class="sidebar-item"><a href="client_lua_basic.html" class="sidebar-link">Lua 基础</a></div><div class="sidebar-item"><a href="client_network.html" class="sidebar-link">Network 网络交互服务</a></div><div class="sidebar-item"><a href="client_resourcesmanager.html" class="sidebar-link">Resource 资源管理服务</a></div><div class="sidebar-item"><strong class="sidebar-title">GUI 图形界面</strong><div class="sidebar-item"><a href="client_gui_summary.html" class="sidebar-link">GUI 系统概述</a></div><div class="sidebar-item"><a href="client_gui_components.html" class="sidebar-link">GUI 组件</a></div><div class="sidebar-item"><a href="client_gui_scrollsystem.html" class="sidebar-link">Scroll System</a></div></div><div class="sidebar-item"><a href="client_statemachine_ui.html" class="sidebar-link">状态机 & UI</a></div><div class="sidebar-item"><a href="client_lua_techguide.html" class="sidebar-link">Lua 开发规范</a></div><div class="sidebar-item"><a href="client_user_guild_frame_sync.html" class="sidebar-link">帧帧同步类型前端开发指南</a></div></div><div class="sidebar-item"><strong class="sidebar-title">工具链</strong><div class="sidebar-item"><a href="configdata_tool.html" class="sidebar-link">打表工具与Protobuf工具</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">后端</strong><div class="sidebar-item"><a href="server_summary.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="server_mini.html" class="mobile-nav-link">如何开始</a></div><div class="sidebar-item"><a href="server_user_guild.html" class="mobile-nav-link">通用功能使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_chatapi.html" class="mobile-nav-link">聊天API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_mailapi.html" class="mobile-nav-link">邮件API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_matchpapi.html" class="mobile-nav-link">匹配API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_cs.html" class="mobile-nav-link">CS模式服务器开发指南</a></div><div class="sidebar-item"><a href="server_user_guild_frame_sync.html" class="mobile-nav-link current">帧同步模式服务器开发指南</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">前端</strong><div class="sidebar-item"><a href="client_summary.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="client_mini.html" class="mobile-nav-link">如何开始</a></div><div class="sidebar-item"><a href="client_service.html" class="mobile-nav-link">服务</a></div><div class="sidebar-item"><a href="client_lua_basic.html" class="mobile-nav-link">Lua 基础</a></div><div class="sidebar-item"><a href="client_network.html" class="mobile-nav-link">Network 网络交互服务</a></div><div class="sidebar-item"><a href="client_resourcesmanager.html" class="mobile-nav-link">Resource 资源管理服务</a></div><div class="sidebar-item"><strong class="mobile-nav-title">GUI 图形界面</strong><div class="sidebar-item"><a href="client_gui_summary.html" class="mobile-nav-link">GUI 系统概述</a></div><div class="sidebar-item"><a href="client_gui_components.html" class="mobile-nav-link">GUI 组件</a></div><div class="sidebar-item"><a href="client_gui_scrollsystem.html" class="mobile-nav-link">Scroll System</a></div></div><div class="sidebar-item"><a href="client_statemachine_ui.html" class="mobile-nav-link">状态机 & UI</a></div><div class="sidebar-item"><a href="client_lua_techguide.html" class="mobile-nav-link">Lua 开发规范</a></div><div class="sidebar-item"><a href="client_user_guild_frame_sync.html" class="mobile-nav-link">帧帧同步类型前端开发指南</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">工具链</strong><div class="sidebar-item"><a href="configdata_tool.html" class="mobile-nav-link">打表工具与Protobuf工具</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

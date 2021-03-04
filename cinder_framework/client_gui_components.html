@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>GUI组件接口 | Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/cinder_framework/client_gui_components.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/cinder_framework/client_gui_components.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="GUI 组件IUIAnimation IUIAnimator IUIButton IUICanvasGroup IUIDragInside IUIDropdown IUIGameObject IUIIconEffect IUIImage IUIInputField IUIModelImage IUIPressButton IUIRawImage IUIScrollbar IUIScrollSyst">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GUI组件接口">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/cinder_framework/client_gui_components.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="GUI 组件IUIAnimation IUIAnimator IUIButton IUICanvasGroup IUIDragInside IUIDropdown IUIGameObject IUIIconEffect IUIImage IUIInputField IUIModelImage IUIPressButton IUIRawImage IUIScrollbar IUIScrollSyst">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GUI组件接口">
+<meta name="twitter:description" content="GUI 组件IUIAnimation IUIAnimator IUIButton IUICanvasGroup IUIDragInside IUIDropdown IUIGameObject IUIIconEffect IUIImage IUIInputField IUIModelImage IUIPressButton IUIRawImage IUIScrollbar IUIScrollSyst">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">GUI组件接口</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/cinder_framework/client_gui_components.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="GUI-组件" class="article-heading"><a href="#GUI-组件" class="headerlink" title="GUI 组件"></a>GUI 组件<a class="article-anchor" href="#GUI-组件" aria-hidden="true"></a></h2><p><a href="#IUIAnimation">IUIAnimation</a></p>
+<p><a href="#IUIAnimator">IUIAnimator</a></p>
+<p><a href="#IUIButton">IUIButton</a></p>
+<p><a href="#IUICanvasGroup">IUICanvasGroup</a></p>
+<p><a href="#IUIDragInside">IUIDragInside</a></p>
+<p><a href="#IUIDropdown">IUIDropdown</a></p>
+<p><a href="#IUIGameObject">IUIGameObject</a></p>
+<p><a href="#IUIIconEffect">IUIIconEffect</a></p>
+<p><a href="#IUIImage">IUIImage</a></p>
+<p><a href="#IUIInputField">IUIInputField</a></p>
+<p><a href="#IUIModelImage">IUIModelImage</a></p>
+<p><a href="#IUIPressButton">IUIPressButton</a></p>
+<p><a href="#IUIRawImage">IUIRawImage</a></p>
+<p><a href="#IUIScrollbar">IUIScrollbar</a></p>
+<p><a href="#IUIScrollSystem">IUIScrollSystem</a></p>
+<p><a href="#IUISlider">IUISlider</a></p>
+<p><a href="#IUISpriteSelector">IUISpriteSelector</a></p>
+<p><a href="#IUITabGroup">IUITabGroup</a></p>
+<p><a href="#IUIText">IUIText</a></p>
+<p><a href="#IUIToggle">IUIToggle</a></p>
+<p><a href="#IUIToggleGroup">IUIToggleGroup</a></p>
+<hr>
+<h3 id="IUIAnimation" class="article-heading"><a href="#IUIAnimation" class="headerlink" title="IUIAnimation"></a>IUIAnimation<a class="article-anchor" href="#IUIAnimation" aria-hidden="true"></a></h3><h5 id="Play-animName-callback" class="article-heading"><a href="#Play-animName-callback" class="headerlink" title="Play(animName, callback)"></a>Play(animName, callback)<a class="article-anchor" href="#Play-animName-callback" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>播放动画.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>animName <code>string</code> : 动画名称</li>
+<li>callback <code>function</code> : 动画播放结束回调</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="Stop-invokeCallBack" class="article-heading"><a href="#Stop-invokeCallBack" class="headerlink" title="Stop(invokeCallBack)"></a>Stop(invokeCallBack)<a class="article-anchor" href="#Stop-invokeCallBack" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>停止动画.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>invokeCallBack <code>bool</code> : 停止动画后时候执行回调</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIAnimator" class="article-heading"><a href="#IUIAnimator" class="headerlink" title="IUIAnimator"></a>IUIAnimator<a class="article-anchor" href="#IUIAnimator" aria-hidden="true"></a></h3><h5 id="GetFloat-nameOrId" class="article-heading"><a href="#GetFloat-nameOrId" class="headerlink" title="GetFloat(nameOrId)"></a>GetFloat(nameOrId)<a class="article-anchor" href="#GetFloat-nameOrId" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id获取float型参数的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>float</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="SetFloat-nameOrId-value" class="article-heading"><a href="#SetFloat-nameOrId-value" class="headerlink" title="SetFloat(nameOrId,value)"></a>SetFloat(nameOrId,value)<a class="article-anchor" href="#SetFloat-nameOrId-value" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id设置float型参数的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id</li>
+<li>value <code>float</code> : float值</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="GetBool-nameOrId" class="article-heading"><a href="#GetBool-nameOrId" class="headerlink" title="GetBool(nameOrId)"></a>GetBool(nameOrId)<a class="article-anchor" href="#GetBool-nameOrId" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id获取bool型参数的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="SetBool-nameOrId-value" class="article-heading"><a href="#SetBool-nameOrId-value" class="headerlink" title="SetBool(nameOrId,value)"></a>SetBool(nameOrId,value)<a class="article-anchor" href="#SetBool-nameOrId-value" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id设置bool型数的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id</li>
+<li>value <code>bool</code> : bool值</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="GetInteger-nameOrId" class="article-heading"><a href="#GetInteger-nameOrId" class="headerlink" title="GetInteger(nameOrId)"></a>GetInteger(nameOrId)<a class="article-anchor" href="#GetInteger-nameOrId" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id获取int型参数的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>int</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="SetInteger-nameOrId-value" class="article-heading"><a href="#SetInteger-nameOrId-value" class="headerlink" title="SetInteger(nameOrId,value)"></a>SetInteger(nameOrId,value)<a class="article-anchor" href="#SetInteger-nameOrId-value" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id设置int参数的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id</li>
+<li>value <code>bool</code> : int值</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="SetTrigger-nameOrId" class="article-heading"><a href="#SetTrigger-nameOrId" class="headerlink" title="SetTrigger(nameOrId)"></a>SetTrigger(nameOrId)<a class="article-anchor" href="#SetTrigger-nameOrId" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id激活动画触发器，使得动画控制器的状态机中的流程发生变化.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="ResetTrigger-nameOrId" class="article-heading"><a href="#ResetTrigger-nameOrId" class="headerlink" title="ResetTrigger(nameOrId)"></a>ResetTrigger(nameOrId)<a class="article-anchor" href="#ResetTrigger-nameOrId" aria-hidden="true"></a></h5><ul>
+<li>Description<ul>
+<li>通过name或者id重置动画触发器.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>nameOrId <code>string or int</code> : name or id    </li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIButton" class="article-heading"><a href="#IUIButton" class="headerlink" title="IUIButton"></a>IUIButton<a class="article-anchor" href="#IUIButton" aria-hidden="true"></a></h3><h4 id="SetInteractable-state" class="article-heading"><a href="#SetInteractable-state" class="headerlink" title="SetInteractable(state)"></a>SetInteractable(state)<a class="article-anchor" href="#SetInteractable-state" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置对象是否可以交互.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>state <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetInteractable" class="article-heading"><a href="#GetInteractable" class="headerlink" title="GetInteractable()"></a>GetInteractable()<a class="article-anchor" href="#GetInteractable" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得对象是否可以交互.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="OnClick" class="article-heading"><a href="#OnClick" class="headerlink" title="OnClick()"></a>OnClick()<a class="article-anchor" href="#OnClick" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听Button的单击事件.单击按钮时触发回调.</li>
+<li>回调无返回值,function() end.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>fun <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="RemoveAllClick" class="article-heading"><a href="#RemoveAllClick" class="headerlink" title="RemoveAllClick()"></a>RemoveAllClick()<a class="article-anchor" href="#RemoveAllClick" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>清除Button所有单击事件的监听.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li><code>void</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>void</code>  </li>
+</ul>
+</li>
+</ul>
+<h4 id="GetTextValue" class="article-heading"><a href="#GetTextValue" class="headerlink" title="GetTextValue()"></a>GetTextValue()<a class="article-anchor" href="#GetTextValue" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取button子控件中名字为<code>Text</code>的文本控件的文本内容.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li><code>void</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>string</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetTextValue-txt" class="article-heading"><a href="#SetTextValue-txt" class="headerlink" title="SetTextValue(txt)"></a>SetTextValue(txt)<a class="article-anchor" href="#SetTextValue-txt" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置button子控件中名字为<code>Text</code>的文本控件的文本内容.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li>txt <code>string</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>void</code>    </li>
+</ul>
+</li>
+</ul>
+<h4 id="GetTextColor" class="article-heading"><a href="#GetTextColor" class="headerlink" title="GetTextColor()"></a>GetTextColor()<a class="article-anchor" href="#GetTextColor" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得button子控件中名字为<code>Text</code>的文本控件的颜色.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li><code>void</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>Color</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetTextColor-color" class="article-heading"><a href="#SetTextColor-color" class="headerlink" title="SetTextColor(color)"></a>SetTextColor(color)<a class="article-anchor" href="#SetTextColor-color" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置button子控件中名字为<code>Text</code>的文本控件的颜色.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li>color <code>Color</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="GetSprite-sprite" class="article-heading"><a href="#GetSprite-sprite" class="headerlink" title="GetSprite(sprite)"></a>GetSprite(sprite)<a class="article-anchor" href="#GetSprite-sprite" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取image Component的sprite.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li><code>void</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>Sprite</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetSprite-sprite" class="article-heading"><a href="#SetSprite-sprite" class="headerlink" title="SetSprite(sprite)"></a>SetSprite(sprite)<a class="article-anchor" href="#SetSprite-sprite" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置image Component的sprite.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li>sprite <code>Sprite</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="GetImgColor" class="article-heading"><a href="#GetImgColor" class="headerlink" title="GetImgColor()"></a>GetImgColor()<a class="article-anchor" href="#GetImgColor" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取image Component的颜色.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li><code>void</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>Color</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetImgColor-color" class="article-heading"><a href="#SetImgColor-color" class="headerlink" title="SetImgColor(color)"></a>SetImgColor(color)<a class="article-anchor" href="#SetImgColor-color" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取image Component的颜色.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li>color <code>Color</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetImgColorAlpha-alpha" class="article-heading"><a href="#SetImgColorAlpha-alpha" class="headerlink" title="SetImgColorAlpha(alpha)"></a>SetImgColorAlpha(alpha)<a class="article-anchor" href="#SetImgColorAlpha-alpha" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取image Component的透明度.</li>
+</ul>
+</li>
+<li>Params     <ul>
+<li>alpha <code>float</code>  </li>
+</ul>
+</li>
+<li>Return     <ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUICanvasGroup" class="article-heading"><a href="#IUICanvasGroup" class="headerlink" title="IUICanvasGroup"></a>IUICanvasGroup<a class="article-anchor" href="#IUICanvasGroup" aria-hidden="true"></a></h3><h4 id="SetGroupAlpha-alpha" class="article-heading"><a href="#SetGroupAlpha-alpha" class="headerlink" title="SetGroupAlpha(alpha)"></a>SetGroupAlpha(alpha)<a class="article-anchor" href="#SetGroupAlpha-alpha" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置组内元素的透明度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>alpha <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetGroupAlpha" class="article-heading"><a href="#GetGroupAlpha" class="headerlink" title="GetGroupAlpha()"></a>GetGroupAlpha()<a class="article-anchor" href="#GetGroupAlpha" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取组设置的透明度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>float</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetInteractable-interactable" class="article-heading"><a href="#SetInteractable-interactable" class="headerlink" title="SetInteractable(interactable)"></a>SetInteractable(interactable)<a class="article-anchor" href="#SetInteractable-interactable" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置组内元素是否可交互.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>interactable <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetInteractable-1" class="article-heading"><a href="#GetInteractable-1" class="headerlink" title="GetInteractable()"></a>GetInteractable()<a class="article-anchor" href="#GetInteractable-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取是否允许组内元素可交互.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetBlocksRaycasts-blocksRaycasts" class="article-heading"><a href="#SetBlocksRaycasts-blocksRaycasts" class="headerlink" title="SetBlocksRaycasts(blocksRaycasts)"></a>SetBlocksRaycasts(blocksRaycasts)<a class="article-anchor" href="#SetBlocksRaycasts-blocksRaycasts" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置组内元素的允许射线投射.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>blocksRaycasts <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetBlocksRaycasts" class="article-heading"><a href="#GetBlocksRaycasts" class="headerlink" title="GetBlocksRaycasts()"></a>GetBlocksRaycasts()<a class="article-anchor" href="#GetBlocksRaycasts" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取是否允许组内元素被射线投射.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetIgnoreParentGroups-ignoreParentGroups" class="article-heading"><a href="#SetIgnoreParentGroups-ignoreParentGroups" class="headerlink" title="SetIgnoreParentGroups(ignoreParentGroups)"></a>SetIgnoreParentGroups(ignoreParentGroups)<a class="article-anchor" href="#SetIgnoreParentGroups-ignoreParentGroups" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>如果设置为真,则该组将忽略任何父组的设置.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>ignoreParentGroups <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetIgnoreParentGroups" class="article-heading"><a href="#GetIgnoreParentGroups" class="headerlink" title="GetIgnoreParentGroups()"></a>GetIgnoreParentGroups()<a class="article-anchor" href="#GetIgnoreParentGroups" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前ignoreParentGroups值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIDragInside" class="article-heading"><a href="#IUIDragInside" class="headerlink" title="IUIDragInside"></a>IUIDragInside<a class="article-anchor" href="#IUIDragInside" aria-hidden="true"></a></h3><h4 id="AddEndDragEvent-func" class="article-heading"><a href="#AddEndDragEvent-func" class="headerlink" title="AddEndDragEvent(func)"></a>AddEndDragEvent(func)<a class="article-anchor" href="#AddEndDragEvent-func" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听拖拽结束事件.</li>
+<li>拖拽结束调用回调并返回PointerEventData数据,function(data) end.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>func <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIDropdown" class="article-heading"><a href="#IUIDropdown" class="headerlink" title="IUIDropdown"></a>IUIDropdown<a class="article-anchor" href="#IUIDropdown" aria-hidden="true"></a></h3><h4 id="GetValue" class="article-heading"><a href="#GetValue" class="headerlink" title="GetValue()"></a>GetValue()<a class="article-anchor" href="#GetValue" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前选中选项的下标.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>int</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetValue-value" class="article-heading"><a href="#SetValue-value" class="headerlink" title="SetValue(value)"></a>SetValue(value)<a class="article-anchor" href="#SetValue-value" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置选中选项.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="ClearOptions" class="article-heading"><a href="#ClearOptions" class="headerlink" title="ClearOptions()"></a>ClearOptions()<a class="article-anchor" href="#ClearOptions" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>删除选项列表.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="AddOptions-args" class="article-heading"><a href="#AddOptions-args" class="headerlink" title="AddOptions(args)"></a>AddOptions(args)<a class="article-anchor" href="#AddOptions-args" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>根据字符串列表将多个纯文本选项添加到下拉菜单的选项中.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>args <code>string[]</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="AddDropDownValueChanged-callFunc" class="article-heading"><a href="#AddDropDownValueChanged-callFunc" class="headerlink" title="AddDropDownValueChanged(callFunc)"></a>AddDropDownValueChanged(callFunc)<a class="article-anchor" href="#AddDropDownValueChanged-callFunc" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听选项改变事件，在选项更改后执行回调.</li>
+<li>回调返回选项index,function(index) end.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>callFunc <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="AddDropDownOptionDatas-names-sprites" class="article-heading"><a href="#AddDropDownOptionDatas-names-sprites" class="headerlink" title="AddDropDownOptionDatas(names,sprites)"></a>AddDropDownOptionDatas(names,sprites)<a class="article-anchor" href="#AddDropDownOptionDatas-names-sprites" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>根据字符串列表和Sprite列表将选项添加到下拉菜单的选项中.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>names <code>string[]</code></li>
+<li>sprites <code>Sprite[]</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetDropDownOption-selectid-data" class="article-heading"><a href="#SetDropDownOption-selectid-data" class="headerlink" title="SetDropDownOption(selectid,data)"></a>SetDropDownOption(selectid,data)<a class="article-anchor" href="#SetDropDownOption-selectid-data" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>根据selectid设置选项数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>selectid <code>int</code></li>
+<li>data <code>table</code> :  {text(type:string),image(type:Sprite)}</li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetDropDownOptionText-selectid" class="article-heading"><a href="#GetDropDownOptionText-selectid" class="headerlink" title="GetDropDownOptionText(selectid)"></a>GetDropDownOptionText(selectid)<a class="article-anchor" href="#GetDropDownOptionText-selectid" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>返回下标是selectid的选项文本数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>selectid <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>string</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIGameObject" class="article-heading"><a href="#IUIGameObject" class="headerlink" title="IUIGameObject"></a>IUIGameObject<a class="article-anchor" href="#IUIGameObject" aria-hidden="true"></a></h3><h4 id="AddClickEvent-func" class="article-heading"><a href="#AddClickEvent-func" class="headerlink" title="AddClickEvent(func)"></a>AddClickEvent(func)<a class="article-anchor" href="#AddClickEvent-func" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听点击事件,单击这个gameObject后执行回调.</li>
+<li>回调返回点击的gameObject对象,function(gameObject) end.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>func <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="RemoveClickEvent" class="article-heading"><a href="#RemoveClickEvent" class="headerlink" title="RemoveClickEvent()"></a>RemoveClickEvent()<a class="article-anchor" href="#RemoveClickEvent" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>移除该对象的点击事件的监听.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIIconEffect" class="article-heading"><a href="#IUIIconEffect" class="headerlink" title="IUIIconEffect"></a>IUIIconEffect<a class="article-anchor" href="#IUIIconEffect" aria-hidden="true"></a></h3><h4 id="SetEffect-type" class="article-heading"><a href="#SetEffect-type" class="headerlink" title="SetEffect(type)"></a>SetEffect(type)<a class="article-anchor" href="#SetEffect-type" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置当前控件效果,type值是在UISetting里IconEffectDataList的配置.</li>
+<li>返回值表示当前操作是否成功.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>type <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetSprite-sprite-1" class="article-heading"><a href="#SetSprite-sprite-1" class="headerlink" title="SetSprite(sprite)"></a>SetSprite(sprite)<a class="article-anchor" href="#SetSprite-sprite-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置图片.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>sprite <code>Sprite</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIImage" class="article-heading"><a href="#IUIImage" class="headerlink" title="IUIImage"></a>IUIImage<a class="article-anchor" href="#IUIImage" aria-hidden="true"></a></h3><h4 id="GetColor" class="article-heading"><a href="#GetColor" class="headerlink" title="GetColor()"></a>GetColor()<a class="article-anchor" href="#GetColor" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前组件颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Color</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetColor-color" class="article-heading"><a href="#SetColor-color" class="headerlink" title="SetColor(color)"></a>SetColor(color)<a class="article-anchor" href="#SetColor-color" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>color <code>Color</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetColorAlpha-alpha" class="article-heading"><a href="#SetColorAlpha-alpha" class="headerlink" title="SetColorAlpha(alpha)"></a>SetColorAlpha(alpha)<a class="article-anchor" href="#SetColorAlpha-alpha" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置透明度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>alpha <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetSprite" class="article-heading"><a href="#GetSprite" class="headerlink" title="GetSprite()"></a>GetSprite()<a class="article-anchor" href="#GetSprite" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得当前Sprite.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Sprite</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetOriginSprite" class="article-heading"><a href="#GetOriginSprite" class="headerlink" title="GetOriginSprite()"></a>GetOriginSprite()<a class="article-anchor" href="#GetOriginSprite" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得编辑时赋值的Sprite.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Sprite</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetSprite-sprite-2" class="article-heading"><a href="#SetSprite-sprite-2" class="headerlink" title="SetSprite(sprite)"></a>SetSprite(sprite)<a class="article-anchor" href="#SetSprite-sprite-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置Sprite.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>sprite <code>Sprite</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetMaterial-material" class="article-heading"><a href="#SetMaterial-material" class="headerlink" title="SetMaterial(material)"></a>SetMaterial(material)<a class="article-anchor" href="#SetMaterial-material" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置材质.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>material <code>Material</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetMaterial" class="article-heading"><a href="#GetMaterial" class="headerlink" title="GetMaterial()"></a>GetMaterial()<a class="article-anchor" href="#GetMaterial" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>返回当前材质.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Material</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetRaycastTargetState" class="article-heading"><a href="#GetRaycastTargetState" class="headerlink" title="GetRaycastTargetState()"></a>GetRaycastTargetState()<a class="article-anchor" href="#GetRaycastTargetState" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>返回当前是否可以被射线投射.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetRaycastTargetState-raycastTarget" class="article-heading"><a href="#SetRaycastTargetState-raycastTarget" class="headerlink" title="SetRaycastTargetState(raycastTarget)"></a>SetRaycastTargetState(raycastTarget)<a class="article-anchor" href="#SetRaycastTargetState-raycastTarget" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置控件是否可以被射线投射.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>raycastTarget <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetFillAmount-amount" class="article-heading"><a href="#SetFillAmount-amount" class="headerlink" title="SetFillAmount(amount)"></a>SetFillAmount(amount)<a class="article-anchor" href="#SetFillAmount-amount" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置image显示的百分比,需要ImageType为Filled.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>amount <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetFillAmount" class="article-heading"><a href="#GetFillAmount" class="headerlink" title="GetFillAmount()"></a>GetFillAmount()<a class="article-anchor" href="#GetFillAmount" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前image显示的百分比,需要ImageType为Filled.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>float</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="DoFillAmountAnimation-from-to-duration" class="article-heading"><a href="#DoFillAmountAnimation-from-to-duration" class="headerlink" title="DoFillAmountAnimation(from,to,duration)"></a>DoFillAmountAnimation(from,to,duration)<a class="article-anchor" href="#DoFillAmountAnimation-from-to-duration" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>播放填充图片显示百分比动画.</li>
+<li>平滑的从from到to的动画持续时间为duration.</li>
+<li>from、to的取值范围是0~1.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>from <code>float</code></li>
+<li>to <code>float</code></li>
+<li>duration <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="StopFillAmountAnimation" class="article-heading"><a href="#StopFillAmountAnimation" class="headerlink" title="StopFillAmountAnimation()"></a>StopFillAmountAnimation()<a class="article-anchor" href="#StopFillAmountAnimation" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>停止当前填充图片显示百分比动画.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetNativeSize" class="article-heading"><a href="#SetNativeSize" class="headerlink" title="SetNativeSize()"></a>SetNativeSize()<a class="article-anchor" href="#SetNativeSize" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>调整图像大小,大小取决于当前图片资源大小.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIInputField" class="article-heading"><a href="#IUIInputField" class="headerlink" title="IUIInputField"></a>IUIInputField<a class="article-anchor" href="#IUIInputField" aria-hidden="true"></a></h3><h4 id="GetValue-1" class="article-heading"><a href="#GetValue-1" class="headerlink" title="GetValue()"></a>GetValue()<a class="article-anchor" href="#GetValue-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前输入框的文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>string</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetValue-value-1" class="article-heading"><a href="#SetValue-value-1" class="headerlink" title="SetValue(value)"></a>SetValue(value)<a class="article-anchor" href="#SetValue-value-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置输入框的文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="MoveTextEnd" class="article-heading"><a href="#MoveTextEnd" class="headerlink" title="MoveTextEnd()"></a>MoveTextEnd()<a class="article-anchor" href="#MoveTextEnd" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>函数执行后延迟0.01秒移动光标到文本末尾.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="MoveTextPosition-caretPos" class="article-heading"><a href="#MoveTextPosition-caretPos" class="headerlink" title="MoveTextPosition(caretPos)"></a>MoveTextPosition(caretPos)<a class="article-anchor" href="#MoveTextPosition-caretPos" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>函数执行后延迟0.01秒移动光标到指定位置.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>caretPos <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetCaretPosition" class="article-heading"><a href="#GetCaretPosition" class="headerlink" title="GetCaretPosition()"></a>GetCaretPosition()<a class="article-anchor" href="#GetCaretPosition" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得光标当前位置.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>int</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetCaretPosition-pos" class="article-heading"><a href="#SetCaretPosition-pos" class="headerlink" title="SetCaretPosition(pos)"></a>SetCaretPosition(pos)<a class="article-anchor" href="#SetCaretPosition-pos" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置光标位置.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>pos <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetPlaceHolderText-value" class="article-heading"><a href="#SetPlaceHolderText-value" class="headerlink" title="SetPlaceHolderText(value)"></a>SetPlaceHolderText(value)<a class="article-anchor" href="#SetPlaceHolderText-value" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置输入提示文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetPlaceHolderText" class="article-heading"><a href="#GetPlaceHolderText" class="headerlink" title="GetPlaceHolderText()"></a>GetPlaceHolderText()<a class="article-anchor" href="#GetPlaceHolderText" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得输入提示文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>string</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="AddEndEditEvent-func" class="article-heading"><a href="#AddEndEditEvent-func" class="headerlink" title="AddEndEditEvent(func)"></a>AddEndEditEvent(func)<a class="article-anchor" href="#AddEndEditEvent-func" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>添加输入结束事件.</li>
+<li>事件回调返回当前输入框文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>func <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code><h4 id="RemoveEndEditEvent" class="article-heading"><a href="#RemoveEndEditEvent" class="headerlink" title="RemoveEndEditEvent()"></a>RemoveEndEditEvent()<a class="article-anchor" href="#RemoveEndEditEvent" aria-hidden="true"></a></h4></li>
+</ul>
+</li>
+<li>Description<ul>
+<li>清除添加的输入结束事件.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="OnInputValueChanged-func" class="article-heading"><a href="#OnInputValueChanged-func" class="headerlink" title="OnInputValueChanged(func)"></a>OnInputValueChanged(func)<a class="article-anchor" href="#OnInputValueChanged-func" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>添加输入内容变化事件.</li>
+<li>事件回调返回当前输入框文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>func <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="RemoveAllInputValueChanged" class="article-heading"><a href="#RemoveAllInputValueChanged" class="headerlink" title="RemoveAllInputValueChanged()"></a>RemoveAllInputValueChanged()<a class="article-anchor" href="#RemoveAllInputValueChanged" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>清除输入内容变化事件的注册.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="ClearInputFieldEvent" class="article-heading"><a href="#ClearInputFieldEvent" class="headerlink" title="ClearInputFieldEvent()"></a>ClearInputFieldEvent()<a class="article-anchor" href="#ClearInputFieldEvent" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>清除该控件监听的输入结束事件及输入内容变化事件.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="ActiveInputField-active" class="article-heading"><a href="#ActiveInputField-active" class="headerlink" title="ActiveInputField(active)"></a>ActiveInputField(active)<a class="article-anchor" href="#ActiveInputField-active" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>active为true,激活该控件,可以处理事件.</li>
+<li>active为false,使控件实现,将不处理任何事件.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>active <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetReadOnly-readonly" class="article-heading"><a href="#SetReadOnly-readonly" class="headerlink" title="SetReadOnly(readonly)"></a>SetReadOnly(readonly)<a class="article-anchor" href="#SetReadOnly-readonly" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置只读只允许文本的高亮显示，而不允许通过键盘进行修改.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>readonly <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIModelImage" class="article-heading"><a href="#IUIModelImage" class="headerlink" title="IUIModelImage"></a>IUIModelImage<a class="article-anchor" href="#IUIModelImage" aria-hidden="true"></a></h3><h4 id="SetModel-modelView-parentName" class="article-heading"><a href="#SetModel-modelView-parentName" class="headerlink" title="SetModel(modelView,parentName)"></a>SetModel(modelView,parentName)<a class="article-anchor" href="#SetModel-modelView-parentName" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置3D模型在ui上显示.</li>
+<li>modelView是需要显示的模型实例,parentName可以为空,如果不为空将会去ModelSceneRoot下去查找这个名字的gameObject.</li>
+<li>如果parentName的gameObject存在将作为modelView的父级,否则ModelSceneRoot将作为modelView的父级.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>modelView <code>GameObject</code></li>
+<li>parentName <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIPressButton" class="article-heading"><a href="#IUIPressButton" class="headerlink" title="IUIPressButton"></a>IUIPressButton<a class="article-anchor" href="#IUIPressButton" aria-hidden="true"></a></h3><h4 id="OnPointerDown-fun" class="article-heading"><a href="#OnPointerDown-fun" class="headerlink" title="OnPointerDown(fun)"></a>OnPointerDown(fun)<a class="article-anchor" href="#OnPointerDown-fun" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听button的按下事件.</li>
+<li>按下时执行回调，回调返回PointerEventData数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>fun <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="OnPointerUp-fun" class="article-heading"><a href="#OnPointerUp-fun" class="headerlink" title="OnPointerUp(fun)"></a>OnPointerUp(fun)<a class="article-anchor" href="#OnPointerUp-fun" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听button的抬起事件.</li>
+<li>抬起时执行回调，回调返回PointerEventData数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>fun <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIRawImage" class="article-heading"><a href="#IUIRawImage" class="headerlink" title="IUIRawImage"></a>IUIRawImage<a class="article-anchor" href="#IUIRawImage" aria-hidden="true"></a></h3><h4 id="GetColor-1" class="article-heading"><a href="#GetColor-1" class="headerlink" title="GetColor()"></a>GetColor()<a class="article-anchor" href="#GetColor-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前颜色数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Color</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetColor-color-1" class="article-heading"><a href="#SetColor-color-1" class="headerlink" title="SetColor(color)"></a>SetColor(color)<a class="article-anchor" href="#SetColor-color-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>color <code>Color</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetTexture" class="article-heading"><a href="#GetTexture" class="headerlink" title="GetTexture()"></a>GetTexture()<a class="article-anchor" href="#GetTexture" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前Texture数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Texture</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetTexture-texture" class="article-heading"><a href="#SetTexture-texture" class="headerlink" title="SetTexture(texture)"></a>SetTexture(texture)<a class="article-anchor" href="#SetTexture-texture" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置贴图.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>texture <code>Texture</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetMaterial-1" class="article-heading"><a href="#GetMaterial-1" class="headerlink" title="GetMaterial()"></a>GetMaterial()<a class="article-anchor" href="#GetMaterial-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前材质.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Material</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetMaterial-material-1" class="article-heading"><a href="#SetMaterial-material-1" class="headerlink" title="SetMaterial(material)"></a>SetMaterial(material)<a class="article-anchor" href="#SetMaterial-material-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置材质.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>material <code>Material</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIScrollbar" class="article-heading"><a href="#IUIScrollbar" class="headerlink" title="IUIScrollbar"></a>IUIScrollbar<a class="article-anchor" href="#IUIScrollbar" aria-hidden="true"></a></h3><h4 id="SetValue-value-2" class="article-heading"><a href="#SetValue-value-2" class="headerlink" title="SetValue(value)"></a>SetValue(value)<a class="article-anchor" href="#SetValue-value-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置滚动条的滑动百分比值,取值范围0~1.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetSize-value" class="article-heading"><a href="#SetSize-value" class="headerlink" title="SetSize(value)"></a>SetSize(value)<a class="article-anchor" href="#SetSize-value" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置滚动条滑块的大小,取值范围0~1(其中1表示填充整个滚动条).</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetSize-value" class="article-heading"><a href="#GetSize-value" class="headerlink" title="GetSize(value)"></a>GetSize(value)<a class="article-anchor" href="#GetSize-value" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取滚动条滑块的大小.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>float</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIScrollSystem" class="article-heading"><a href="#IUIScrollSystem" class="headerlink" title="IUIScrollSystem"></a>IUIScrollSystem<a class="article-anchor" href="#IUIScrollSystem" aria-hidden="true"></a></h3><h4 id="Add-name-data" class="article-heading"><a href="#Add-name-data" class="headerlink" title="Add(name, data)"></a>Add(name, data)<a class="article-anchor" href="#Add-name-data" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>添加一个目标为name的item和数据,返回一个唯一id.</li>
+<li>这个返回的id将作为后面能直接查询和操作这个item或data的唯一办法.</li>
+<li>如果目标name在这个组件下,则直接克隆它,否则将会尝试加载外部prefab.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>name <code>string</code></li>
+<li>data <code>table</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>int</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Insert-handle-prefabName-data" class="article-heading"><a href="#Insert-handle-prefabName-data" class="headerlink" title="Insert(handle,prefabName,data)"></a>Insert(handle,prefabName,data)<a class="article-anchor" href="#Insert-handle-prefabName-data" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>将一个item插入在handle(id)之前.</li>
+<li>返回新item的id.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>handle <code>int</code></li>
+<li>prefabName <code>string</code></li>
+<li>data <code>table</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>int</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Set-handle-data" class="article-heading"><a href="#Set-handle-data" class="headerlink" title="Set(handle,data)"></a>Set(handle,data)<a class="article-anchor" href="#Set-handle-data" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>更新handle对应的item的数据.</li>
+<li>data如果为空那仅仅是刷新,如果有值将覆盖源数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>handle <code>int</code></li>
+<li>data <code>table</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Get-handle" class="article-heading"><a href="#Get-handle" class="headerlink" title="Get(handle)"></a>Get(handle)<a class="article-anchor" href="#Get-handle" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取id对应的数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>handle <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>table</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Remove-handle" class="article-heading"><a href="#Remove-handle" class="headerlink" title="Remove(handle)"></a>Remove(handle)<a class="article-anchor" href="#Remove-handle" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>删除.</li>
+<li>返回值表示操作是否成功.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>handle <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="Clear" class="article-heading"><a href="#Clear" class="headerlink" title="Clear()"></a>Clear()<a class="article-anchor" href="#Clear" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>清除ScrollSystem所有数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="ScrollTo-handle-bUseAnim" class="article-heading"><a href="#ScrollTo-handle-bUseAnim" class="headerlink" title="ScrollTo(handle,bUseAnim)"></a>ScrollTo(handle,bUseAnim)<a class="article-anchor" href="#ScrollTo-handle-bUseAnim" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>滚动到对应的item上.</li>
+<li>可以选择滚动过程是否使用动画.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>handle <code>int</code></li>
+<li>bUseAnim <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="ScrollToBegin-bUseAnim" class="article-heading"><a href="#ScrollToBegin-bUseAnim" class="headerlink" title="ScrollToBegin(bUseAnim)"></a>ScrollToBegin(bUseAnim)<a class="article-anchor" href="#ScrollToBegin-bUseAnim" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>滚动到开始.</li>
+<li>可以选择滚动过程是否使用动画.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>bUseAnim <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="ScrollToEnd-bUseAnim" class="article-heading"><a href="#ScrollToEnd-bUseAnim" class="headerlink" title="ScrollToEnd(bUseAnim)"></a>ScrollToEnd(bUseAnim)<a class="article-anchor" href="#ScrollToEnd-bUseAnim" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>滚动到末尾.</li>
+<li>可以选择滚动过程是否使用动画.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>bUseAnim <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="OnBeginDrag-func" class="article-heading"><a href="#OnBeginDrag-func" class="headerlink" title="OnBeginDrag(func)"></a>OnBeginDrag(func)<a class="article-anchor" href="#OnBeginDrag-func" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听拖动开始事件.</li>
+<li>拖动开始是执行回调，返回PointerEventData数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>func <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="OnDrag-func" class="article-heading"><a href="#OnDrag-func" class="headerlink" title="OnDrag(func)"></a>OnDrag(func)<a class="article-anchor" href="#OnDrag-func" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听拖动中事件.</li>
+<li>拖动开始是执行回调，返回PointerEventData数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>func <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="OnEndDrag-func" class="article-heading"><a href="#OnEndDrag-func" class="headerlink" title="OnEndDrag(func)"></a>OnEndDrag(func)<a class="article-anchor" href="#OnEndDrag-func" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听拖动结束事件.</li>
+<li>拖动开始是执行回调，返回PointerEventData数据.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>func <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetScrollDirection-isHorOrVer" class="article-heading"><a href="#SetScrollDirection-isHorOrVer" class="headerlink" title="SetScrollDirection(isHorOrVer)"></a>SetScrollDirection(isHorOrVer)<a class="article-anchor" href="#SetScrollDirection-isHorOrVer" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置滚动反向.</li>
+<li>true为水平方向，false为垂直方向.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>isHorOrVer <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUISlider" class="article-heading"><a href="#IUISlider" class="headerlink" title="IUISlider"></a>IUISlider<a class="article-anchor" href="#IUISlider" aria-hidden="true"></a></h3><h4 id="SetValue-value-3" class="article-heading"><a href="#SetValue-value-3" class="headerlink" title="SetValue(value)"></a>SetValue(value)<a class="article-anchor" href="#SetValue-value-3" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置进度条的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetValue-2" class="article-heading"><a href="#GetValue-2" class="headerlink" title="GetValue()"></a>GetValue()<a class="article-anchor" href="#GetValue-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得进度条当前的值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>float</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetMaxValue-value" class="article-heading"><a href="#SetMaxValue-value" class="headerlink" title="SetMaxValue(value)"></a>SetMaxValue(value)<a class="article-anchor" href="#SetMaxValue-value" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置进度条最大值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetMinValue-value" class="article-heading"><a href="#SetMinValue-value" class="headerlink" title="SetMinValue(value)"></a>SetMinValue(value)<a class="article-anchor" href="#SetMinValue-value" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置进度条最小值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>value <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="OnValueChanged-fun" class="article-heading"><a href="#OnValueChanged-fun" class="headerlink" title="OnValueChanged(fun)"></a>OnValueChanged(fun)<a class="article-anchor" href="#OnValueChanged-fun" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听进度条进度变化事件.</li>
+<li>回调返回进度条当前值.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>fun <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="RemoveSliderListener" class="article-heading"><a href="#RemoveSliderListener" class="headerlink" title="RemoveSliderListener()"></a>RemoveSliderListener()<a class="article-anchor" href="#RemoveSliderListener" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>清除进度条进度变化事件监听.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetInteractable-state-1" class="article-heading"><a href="#SetInteractable-state-1" class="headerlink" title="SetInteractable(state)"></a>SetInteractable(state)<a class="article-anchor" href="#SetInteractable-state-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置组件时候可交互.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>state <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetFillColor-color" class="article-heading"><a href="#SetFillColor-color" class="headerlink" title="SetFillColor(color)"></a>SetFillColor(color)<a class="article-anchor" href="#SetFillColor-color" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置精度条填充图的颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>color <code>Color</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUISpriteSelector" class="article-heading"><a href="#IUISpriteSelector" class="headerlink" title="IUISpriteSelector"></a>IUISpriteSelector<a class="article-anchor" href="#IUISpriteSelector" aria-hidden="true"></a></h3><h4 id="SetSpriteByIndex-index" class="article-heading"><a href="#SetSpriteByIndex-index" class="headerlink" title="SetSpriteByIndex(index)"></a>SetSpriteByIndex(index)<a class="article-anchor" href="#SetSpriteByIndex-index" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置需要显示的Sprite的index.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>index <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetSpriteByName-name" class="article-heading"><a href="#SetSpriteByName-name" class="headerlink" title="SetSpriteByName(name)"></a>SetSpriteByName(name)<a class="article-anchor" href="#SetSpriteByName-name" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置需要显示的Sprite的name.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>name <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUITabGroup" class="article-heading"><a href="#IUITabGroup" class="headerlink" title="IUITabGroup"></a>IUITabGroup<a class="article-anchor" href="#IUITabGroup" aria-hidden="true"></a></h3><h4 id="GetActiveIndex" class="article-heading"><a href="#GetActiveIndex" class="headerlink" title="GetActiveIndex()"></a>GetActiveIndex()<a class="article-anchor" href="#GetActiveIndex" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>返回当前激活的tab下标.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>int</code>   </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetIndex-index-panelName" class="article-heading"><a href="#SetIndex-index-panelName" class="headerlink" title="SetIndex(index, panelName)"></a>SetIndex(index, panelName)<a class="article-anchor" href="#SetIndex-index-panelName" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>注册下标对应的tab页UIPanel.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>index <code>int</code></li>
+<li>panelName <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code>  </li>
+</ul>
+</li>
+</ul>
+<h4 id="SwitchTabOn-index" class="article-heading"><a href="#SwitchTabOn-index" class="headerlink" title="SwitchTabOn(index)"></a>SwitchTabOn(index)<a class="article-anchor" href="#SwitchTabOn-index" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>选择激活index对应的tab页.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>index <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIText" class="article-heading"><a href="#IUIText" class="headerlink" title="IUIText"></a>IUIText<a class="article-anchor" href="#IUIText" aria-hidden="true"></a></h3><h4 id="GetColor-2" class="article-heading"><a href="#GetColor-2" class="headerlink" title="GetColor()"></a>GetColor()<a class="article-anchor" href="#GetColor-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>返回文本的颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Color</code>   </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetColor-color-2" class="article-heading"><a href="#SetColor-color-2" class="headerlink" title="SetColor(color)"></a>SetColor(color)<a class="article-anchor" href="#SetColor-color-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置文本的颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>color <code>Color</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetColorAlpha-alpha-1" class="article-heading"><a href="#SetColorAlpha-alpha-1" class="headerlink" title="SetColorAlpha(alpha)"></a>SetColorAlpha(alpha)<a class="article-anchor" href="#SetColorAlpha-alpha-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置文本的透明度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>alpha <code>float</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetTextValue-info" class="article-heading"><a href="#SetTextValue-info" class="headerlink" title="SetTextValue(info)"></a>SetTextValue(info)<a class="article-anchor" href="#SetTextValue-info" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>info <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetTextValue-info" class="article-heading"><a href="#GetTextValue-info" class="headerlink" title="GetTextValue(info)"></a>GetTextValue(info)<a class="article-anchor" href="#GetTextValue-info" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得当前文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>string</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetRaycastTargetState-1" class="article-heading"><a href="#GetRaycastTargetState-1" class="headerlink" title="GetRaycastTargetState()"></a>GetRaycastTargetState()<a class="article-anchor" href="#GetRaycastTargetState-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得当前组件是否能接受射线投射.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetRaycastTargetState-raycastTarget-1" class="article-heading"><a href="#SetRaycastTargetState-raycastTarget-1" class="headerlink" title="SetRaycastTargetState(raycastTarget)"></a>SetRaycastTargetState(raycastTarget)<a class="article-anchor" href="#SetRaycastTargetState-raycastTarget-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置组件是否能接受射线投射.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>raycastTarget <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetOutlineGraphicAlpha-useGraphicAlpha" class="article-heading"><a href="#SetOutlineGraphicAlpha-useGraphicAlpha" class="headerlink" title="SetOutlineGraphicAlpha(useGraphicAlpha)"></a>SetOutlineGraphicAlpha(useGraphicAlpha)<a class="article-anchor" href="#SetOutlineGraphicAlpha-useGraphicAlpha" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置描边的透明度是否继承自文本组件的透明度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>useGraphicAlpha <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetOutlineGraphicAlpha" class="article-heading"><a href="#GetOutlineGraphicAlpha" class="headerlink" title="GetOutlineGraphicAlpha()"></a>GetOutlineGraphicAlpha()<a class="article-anchor" href="#GetOutlineGraphicAlpha" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>返回描边透明度是否继承自文本组件.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetOutlineEffectColor-effectColor" class="article-heading"><a href="#SetOutlineEffectColor-effectColor" class="headerlink" title="SetOutlineEffectColor(effectColor)"></a>SetOutlineEffectColor(effectColor)<a class="article-anchor" href="#SetOutlineEffectColor-effectColor" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置描边的效果颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>effectColor <code>Color</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetOutlineEffectColor" class="article-heading"><a href="#GetOutlineEffectColor" class="headerlink" title="GetOutlineEffectColor()"></a>GetOutlineEffectColor()<a class="article-anchor" href="#GetOutlineEffectColor" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得当前描边的效果颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Color</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetOutlineEffectDistance" class="article-heading"><a href="#GetOutlineEffectDistance" class="headerlink" title="GetOutlineEffectDistance()"></a>GetOutlineEffectDistance()<a class="article-anchor" href="#GetOutlineEffectDistance" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获得当前描边的阴影长度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Vector2</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetOutlineEffectDistance-effectDistance" class="article-heading"><a href="#SetOutlineEffectDistance-effectDistance" class="headerlink" title="SetOutlineEffectDistance(effectDistance)"></a>SetOutlineEffectDistance(effectDistance)<a class="article-anchor" href="#SetOutlineEffectDistance-effectDistance" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置描边的阴影长度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>effectDistance <code>Vector2</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetPreferredWidth" class="article-heading"><a href="#GetPreferredWidth" class="headerlink" title="GetPreferredWidth()"></a>GetPreferredWidth()<a class="article-anchor" href="#GetPreferredWidth" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取分配给文本足够空间的宽度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>float</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetPreferredHeight" class="article-heading"><a href="#GetPreferredHeight" class="headerlink" title="GetPreferredHeight()"></a>GetPreferredHeight()<a class="article-anchor" href="#GetPreferredHeight" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取分配给文本足够空间的高度.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>float</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetFontStyle-style" class="article-heading"><a href="#SetFontStyle-style" class="headerlink" title="SetFontStyle(style)"></a>SetFontStyle(style)<a class="article-anchor" href="#SetFontStyle-style" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置字体风格.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>style <code>FontStyle</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetFontStyle" class="article-heading"><a href="#GetFontStyle" class="headerlink" title="GetFontStyle()"></a>GetFontStyle()<a class="article-anchor" href="#GetFontStyle" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取当前字体风格.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>FontStyle</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetFontSize-size" class="article-heading"><a href="#SetFontSize-size" class="headerlink" title="SetFontSize(size)"></a>SetFontSize(size)<a class="article-anchor" href="#SetFontSize-size" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置字体大小.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>size <code>uint</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetFontSize" class="article-heading"><a href="#GetFontSize" class="headerlink" title="GetFontSize()"></a>GetFontSize()<a class="article-anchor" href="#GetFontSize" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置字体大小.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>uint</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetMaterial-material-2" class="article-heading"><a href="#SetMaterial-material-2" class="headerlink" title="SetMaterial(material)"></a>SetMaterial(material)<a class="article-anchor" href="#SetMaterial-material-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置材质.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>material <code>Material</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIToggle" class="article-heading"><a href="#IUIToggle" class="headerlink" title="IUIToggle"></a>IUIToggle<a class="article-anchor" href="#IUIToggle" aria-hidden="true"></a></h3><h4 id="GetTextValue-1" class="article-heading"><a href="#GetTextValue-1" class="headerlink" title="GetTextValue()"></a>GetTextValue()<a class="article-anchor" href="#GetTextValue-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>返回子控件名字为Label的文本控件的文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>string</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetTextValue-txt-1" class="article-heading"><a href="#SetTextValue-txt-1" class="headerlink" title="SetTextValue(txt)"></a>SetTextValue(txt)<a class="article-anchor" href="#SetTextValue-txt-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置子控件名字为Label的文本控件的文本内容.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>txt <code>string</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="GetTextColor-1" class="article-heading"><a href="#GetTextColor-1" class="headerlink" title="GetTextColor()"></a>GetTextColor()<a class="article-anchor" href="#GetTextColor-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置子控件名字为Label的文本控件的文本颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Color</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetTextColor-color-1" class="article-heading"><a href="#SetTextColor-color-1" class="headerlink" title="SetTextColor(color)"></a>SetTextColor(color)<a class="article-anchor" href="#SetTextColor-color-1" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置子控件名字为Label的文本控件的文本颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>color <code>Color</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="GetImageColor" class="article-heading"><a href="#GetImageColor" class="headerlink" title="GetImageColor()"></a>GetImageColor()<a class="article-anchor" href="#GetImageColor" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取子控件名字为Image的Image控件的颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>Color</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetImageColor-color" class="article-heading"><a href="#SetImageColor-color" class="headerlink" title="SetImageColor(color)"></a>SetImageColor(color)<a class="article-anchor" href="#SetImageColor-color" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置子控件名字为Image的Image控件的颜色.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>color <code>Color</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetToggleState-isOn" class="article-heading"><a href="#SetToggleState-isOn" class="headerlink" title="SetToggleState(isOn)"></a>SetToggleState(isOn)<a class="article-anchor" href="#SetToggleState-isOn" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置组件的开关状态.</li>
+<li>如果在设置之前监听了开关状态切换事件,那设置之后该事件也会触发执行.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>isOn <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="GetToggleState" class="article-heading"><a href="#GetToggleState" class="headerlink" title="GetToggleState()"></a>GetToggleState()<a class="article-anchor" href="#GetToggleState" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取组件的开关状态.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="OnStateChanged-fun" class="article-heading"><a href="#OnStateChanged-fun" class="headerlink" title="OnStateChanged(fun)"></a>OnStateChanged(fun)<a class="article-anchor" href="#OnStateChanged-fun" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听开关状态改变的事件.</li>
+<li>事件执行回调返回当前开关状态function(isOn) end.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>fun <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="RemoveAllStateChanged" class="article-heading"><a href="#RemoveAllStateChanged" class="headerlink" title="RemoveAllStateChanged()"></a>RemoveAllStateChanged()<a class="article-anchor" href="#RemoveAllStateChanged" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>清除开关状态改变的监听.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="SetInteractable-state-2" class="article-heading"><a href="#SetInteractable-state-2" class="headerlink" title="SetInteractable(state)"></a>SetInteractable(state)<a class="article-anchor" href="#SetInteractable-state-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>设置组件能否被交互.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>state <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="GetInteractable-2" class="article-heading"><a href="#GetInteractable-2" class="headerlink" title="GetInteractable()"></a>GetInteractable()<a class="article-anchor" href="#GetInteractable-2" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>获取组件能否被交互.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>bool</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IUIToggleGroup" class="article-heading"><a href="#IUIToggleGroup" class="headerlink" title="IUIToggleGroup"></a>IUIToggleGroup<a class="article-anchor" href="#IUIToggleGroup" aria-hidden="true"></a></h3><h4 id="AddToggleEvent-callback" class="article-heading"><a href="#AddToggleEvent-callback" class="headerlink" title="AddToggleEvent(callback)"></a>AddToggleEvent(callback)<a class="article-anchor" href="#AddToggleEvent-callback" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>监听组内Toggle开关状态切换事件.</li>
+<li>事件触发回调返回toggle的开关状态及toggle在组内的下标,function(isOn,idx) end.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>callback <code>function</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SetAllTogglesOff" class="article-heading"><a href="#SetAllTogglesOff" class="headerlink" title="SetAllTogglesOff()"></a>SetAllTogglesOff()<a class="article-anchor" href="#SetAllTogglesOff" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>将组内所有toggle开关状态全置为false,且通知给每个toggle状态改变的消息.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li><code>void</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SwitchToggleIndex-index" class="article-heading"><a href="#SwitchToggleIndex-index" class="headerlink" title="SwitchToggleIndex(index)"></a>SwitchToggleIndex(index)<a class="article-anchor" href="#SwitchToggleIndex-index" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>切换组内下标为index的toggle为选中状态.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>index <code>int</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<h4 id="SwitchAllowSwitchOff-isOn" class="article-heading"><a href="#SwitchAllowSwitchOff-isOn" class="headerlink" title="SwitchAllowSwitchOff(isOn)"></a>SwitchAllowSwitchOff(isOn)<a class="article-anchor" href="#SwitchAllowSwitchOff-isOn" aria-hidden="true"></a></h4><ul>
+<li>Description<ul>
+<li>isOn为true表示组内toggle可以全部是关闭状态.</li>
+<li>isOn为false表示组内toggle至少有一个是选中状态.</li>
+</ul>
+</li>
+<li>Params<ul>
+<li>isOn <code>bool</code></li>
+</ul>
+</li>
+<li>Return<ul>
+<li><code>void</code> </li>
+</ul>
+</li>
+</ul>
+<hr>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.312Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="server_summary.html" class="article-footer-next" title="概述"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI-组件"><span class="toc-text">GUI 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIAnimation"><span class="toc-text">IUIAnimation</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Play-animName-callback"><span class="toc-text">Play(animName, callback)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stop-invokeCallBack"><span class="toc-text">Stop(invokeCallBack)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIAnimator"><span class="toc-text">IUIAnimator</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GetFloat-nameOrId"><span class="toc-text">GetFloat(nameOrId)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SetFloat-nameOrId-value"><span class="toc-text">SetFloat(nameOrId,value)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetBool-nameOrId"><span class="toc-text">GetBool(nameOrId)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SetBool-nameOrId-value"><span class="toc-text">SetBool(nameOrId,value)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetInteger-nameOrId"><span class="toc-text">GetInteger(nameOrId)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SetInteger-nameOrId-value"><span class="toc-text">SetInteger(nameOrId,value)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SetTrigger-nameOrId"><span class="toc-text">SetTrigger(nameOrId)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ResetTrigger-nameOrId"><span class="toc-text">ResetTrigger(nameOrId)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIButton"><span class="toc-text">IUIButton</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SetInteractable-state"><span class="toc-text">SetInteractable(state)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetInteractable"><span class="toc-text">GetInteractable()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnClick"><span class="toc-text">OnClick()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RemoveAllClick"><span class="toc-text">RemoveAllClick()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetTextValue"><span class="toc-text">GetTextValue()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetTextValue-txt"><span class="toc-text">SetTextValue(txt)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetTextColor"><span class="toc-text">GetTextColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetTextColor-color"><span class="toc-text">SetTextColor(color)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetSprite-sprite"><span class="toc-text">GetSprite(sprite)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetSprite-sprite"><span class="toc-text">SetSprite(sprite)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetImgColor"><span class="toc-text">GetImgColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetImgColor-color"><span class="toc-text">SetImgColor(color)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetImgColorAlpha-alpha"><span class="toc-text">SetImgColorAlpha(alpha)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUICanvasGroup"><span class="toc-text">IUICanvasGroup</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SetGroupAlpha-alpha"><span class="toc-text">SetGroupAlpha(alpha)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetGroupAlpha"><span class="toc-text">GetGroupAlpha()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetInteractable-interactable"><span class="toc-text">SetInteractable(interactable)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetInteractable-1"><span class="toc-text">GetInteractable()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetBlocksRaycasts-blocksRaycasts"><span class="toc-text">SetBlocksRaycasts(blocksRaycasts)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetBlocksRaycasts"><span class="toc-text">GetBlocksRaycasts()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetIgnoreParentGroups-ignoreParentGroups"><span class="toc-text">SetIgnoreParentGroups(ignoreParentGroups)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetIgnoreParentGroups"><span class="toc-text">GetIgnoreParentGroups()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIDragInside"><span class="toc-text">IUIDragInside</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AddEndDragEvent-func"><span class="toc-text">AddEndDragEvent(func)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIDropdown"><span class="toc-text">IUIDropdown</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GetValue"><span class="toc-text">GetValue()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetValue-value"><span class="toc-text">SetValue(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ClearOptions"><span class="toc-text">ClearOptions()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AddOptions-args"><span class="toc-text">AddOptions(args)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AddDropDownValueChanged-callFunc"><span class="toc-text">AddDropDownValueChanged(callFunc)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AddDropDownOptionDatas-names-sprites"><span class="toc-text">AddDropDownOptionDatas(names,sprites)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetDropDownOption-selectid-data"><span class="toc-text">SetDropDownOption(selectid,data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetDropDownOptionText-selectid"><span class="toc-text">GetDropDownOptionText(selectid)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIGameObject"><span class="toc-text">IUIGameObject</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AddClickEvent-func"><span class="toc-text">AddClickEvent(func)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RemoveClickEvent"><span class="toc-text">RemoveClickEvent()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIIconEffect"><span class="toc-text">IUIIconEffect</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SetEffect-type"><span class="toc-text">SetEffect(type)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetSprite-sprite-1"><span class="toc-text">SetSprite(sprite)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIImage"><span class="toc-text">IUIImage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GetColor"><span class="toc-text">GetColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetColor-color"><span class="toc-text">SetColor(color)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetColorAlpha-alpha"><span class="toc-text">SetColorAlpha(alpha)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetSprite"><span class="toc-text">GetSprite()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetOriginSprite"><span class="toc-text">GetOriginSprite()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetSprite-sprite-2"><span class="toc-text">SetSprite(sprite)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetMaterial-material"><span class="toc-text">SetMaterial(material)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetMaterial"><span class="toc-text">GetMaterial()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetRaycastTargetState"><span class="toc-text">GetRaycastTargetState()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetRaycastTargetState-raycastTarget"><span class="toc-text">SetRaycastTargetState(raycastTarget)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetFillAmount-amount"><span class="toc-text">SetFillAmount(amount)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetFillAmount"><span class="toc-text">GetFillAmount()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DoFillAmountAnimation-from-to-duration"><span class="toc-text">DoFillAmountAnimation(from,to,duration)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StopFillAmountAnimation"><span class="toc-text">StopFillAmountAnimation()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetNativeSize"><span class="toc-text">SetNativeSize()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIInputField"><span class="toc-text">IUIInputField</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GetValue-1"><span class="toc-text">GetValue()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetValue-value-1"><span class="toc-text">SetValue(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MoveTextEnd"><span class="toc-text">MoveTextEnd()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MoveTextPosition-caretPos"><span class="toc-text">MoveTextPosition(caretPos)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetCaretPosition"><span class="toc-text">GetCaretPosition()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetCaretPosition-pos"><span class="toc-text">SetCaretPosition(pos)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetPlaceHolderText-value"><span class="toc-text">SetPlaceHolderText(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetPlaceHolderText"><span class="toc-text">GetPlaceHolderText()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AddEndEditEvent-func"><span class="toc-text">AddEndEditEvent(func)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RemoveEndEditEvent"><span class="toc-text">RemoveEndEditEvent()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnInputValueChanged-func"><span class="toc-text">OnInputValueChanged(func)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RemoveAllInputValueChanged"><span class="toc-text">RemoveAllInputValueChanged()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ClearInputFieldEvent"><span class="toc-text">ClearInputFieldEvent()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ActiveInputField-active"><span class="toc-text">ActiveInputField(active)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetReadOnly-readonly"><span class="toc-text">SetReadOnly(readonly)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIModelImage"><span class="toc-text">IUIModelImage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SetModel-modelView-parentName"><span class="toc-text">SetModel(modelView,parentName)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIPressButton"><span class="toc-text">IUIPressButton</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#OnPointerDown-fun"><span class="toc-text">OnPointerDown(fun)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnPointerUp-fun"><span class="toc-text">OnPointerUp(fun)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIRawImage"><span class="toc-text">IUIRawImage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GetColor-1"><span class="toc-text">GetColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetColor-color-1"><span class="toc-text">SetColor(color)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetTexture"><span class="toc-text">GetTexture()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetTexture-texture"><span class="toc-text">SetTexture(texture)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetMaterial-1"><span class="toc-text">GetMaterial()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetMaterial-material-1"><span class="toc-text">SetMaterial(material)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIScrollbar"><span class="toc-text">IUIScrollbar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SetValue-value-2"><span class="toc-text">SetValue(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetSize-value"><span class="toc-text">SetSize(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetSize-value"><span class="toc-text">GetSize(value)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIScrollSystem"><span class="toc-text">IUIScrollSystem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Add-name-data"><span class="toc-text">Add(name, data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Insert-handle-prefabName-data"><span class="toc-text">Insert(handle,prefabName,data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set-handle-data"><span class="toc-text">Set(handle,data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Get-handle"><span class="toc-text">Get(handle)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Remove-handle"><span class="toc-text">Remove(handle)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Clear"><span class="toc-text">Clear()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ScrollTo-handle-bUseAnim"><span class="toc-text">ScrollTo(handle,bUseAnim)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ScrollToBegin-bUseAnim"><span class="toc-text">ScrollToBegin(bUseAnim)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ScrollToEnd-bUseAnim"><span class="toc-text">ScrollToEnd(bUseAnim)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnBeginDrag-func"><span class="toc-text">OnBeginDrag(func)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnDrag-func"><span class="toc-text">OnDrag(func)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnEndDrag-func"><span class="toc-text">OnEndDrag(func)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetScrollDirection-isHorOrVer"><span class="toc-text">SetScrollDirection(isHorOrVer)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUISlider"><span class="toc-text">IUISlider</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SetValue-value-3"><span class="toc-text">SetValue(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetValue-2"><span class="toc-text">GetValue()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetMaxValue-value"><span class="toc-text">SetMaxValue(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetMinValue-value"><span class="toc-text">SetMinValue(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnValueChanged-fun"><span class="toc-text">OnValueChanged(fun)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RemoveSliderListener"><span class="toc-text">RemoveSliderListener()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetInteractable-state-1"><span class="toc-text">SetInteractable(state)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetFillColor-color"><span class="toc-text">SetFillColor(color)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUISpriteSelector"><span class="toc-text">IUISpriteSelector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SetSpriteByIndex-index"><span class="toc-text">SetSpriteByIndex(index)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetSpriteByName-name"><span class="toc-text">SetSpriteByName(name)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUITabGroup"><span class="toc-text">IUITabGroup</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GetActiveIndex"><span class="toc-text">GetActiveIndex()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetIndex-index-panelName"><span class="toc-text">SetIndex(index, panelName)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SwitchTabOn-index"><span class="toc-text">SwitchTabOn(index)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIText"><span class="toc-text">IUIText</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GetColor-2"><span class="toc-text">GetColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetColor-color-2"><span class="toc-text">SetColor(color)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetColorAlpha-alpha-1"><span class="toc-text">SetColorAlpha(alpha)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetTextValue-info"><span class="toc-text">SetTextValue(info)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetTextValue-info"><span class="toc-text">GetTextValue(info)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetRaycastTargetState-1"><span class="toc-text">GetRaycastTargetState()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetRaycastTargetState-raycastTarget-1"><span class="toc-text">SetRaycastTargetState(raycastTarget)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetOutlineGraphicAlpha-useGraphicAlpha"><span class="toc-text">SetOutlineGraphicAlpha(useGraphicAlpha)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetOutlineGraphicAlpha"><span class="toc-text">GetOutlineGraphicAlpha()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetOutlineEffectColor-effectColor"><span class="toc-text">SetOutlineEffectColor(effectColor)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetOutlineEffectColor"><span class="toc-text">GetOutlineEffectColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetOutlineEffectDistance"><span class="toc-text">GetOutlineEffectDistance()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetOutlineEffectDistance-effectDistance"><span class="toc-text">SetOutlineEffectDistance(effectDistance)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetPreferredWidth"><span class="toc-text">GetPreferredWidth()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetPreferredHeight"><span class="toc-text">GetPreferredHeight()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetFontStyle-style"><span class="toc-text">SetFontStyle(style)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetFontStyle"><span class="toc-text">GetFontStyle()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetFontSize-size"><span class="toc-text">SetFontSize(size)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetFontSize"><span class="toc-text">GetFontSize()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetMaterial-material-2"><span class="toc-text">SetMaterial(material)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIToggle"><span class="toc-text">IUIToggle</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GetTextValue-1"><span class="toc-text">GetTextValue()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetTextValue-txt-1"><span class="toc-text">SetTextValue(txt)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetTextColor-1"><span class="toc-text">GetTextColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetTextColor-color-1"><span class="toc-text">SetTextColor(color)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetImageColor"><span class="toc-text">GetImageColor()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetImageColor-color"><span class="toc-text">SetImageColor(color)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetToggleState-isOn"><span class="toc-text">SetToggleState(isOn)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetToggleState"><span class="toc-text">GetToggleState()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OnStateChanged-fun"><span class="toc-text">OnStateChanged(fun)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RemoveAllStateChanged"><span class="toc-text">RemoveAllStateChanged()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetInteractable-state-2"><span class="toc-text">SetInteractable(state)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GetInteractable-2"><span class="toc-text">GetInteractable()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IUIToggleGroup"><span class="toc-text">IUIToggleGroup</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AddToggleEvent-callback"><span class="toc-text">AddToggleEvent(callback)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SetAllTogglesOff"><span class="toc-text">SetAllTogglesOff()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SwitchToggleIndex-index"><span class="toc-text">SwitchToggleIndex(index)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SwitchAllowSwitchOff-isOn"><span class="toc-text">SwitchAllowSwitchOff(isOn)</span></a></li></ol></li></ol></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">后端</strong><div class="sidebar-item"><a href="server_summary.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="server_mini.html" class="sidebar-link">如何开始</a></div><div class="sidebar-item"><a href="server_user_guild.html" class="sidebar-link">通用功能使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_chatapi.html" class="sidebar-link">聊天API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_mailapi.html" class="sidebar-link">邮件API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_matchpapi.html" class="sidebar-link">匹配API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_cs.html" class="sidebar-link">CS模式服务器开发指南</a></div><div class="sidebar-item"><a href="server_user_guild_frame_sync.html" class="sidebar-link">帧同步模式服务器开发指南</a></div></div><div class="sidebar-item"><strong class="sidebar-title">前端</strong><div class="sidebar-item"><a href="client_summary.html" class="sidebar-link">概述</a></div><div class="sidebar-item"><a href="client_mini.html" class="sidebar-link">如何开始</a></div><div class="sidebar-item"><a href="client_service.html" class="sidebar-link">服务</a></div><div class="sidebar-item"><a href="client_lua_basic.html" class="sidebar-link">Lua 基础</a></div><div class="sidebar-item"><a href="client_network.html" class="sidebar-link">Network 网络交互服务</a></div><div class="sidebar-item"><a href="client_resourcesmanager.html" class="sidebar-link">Resource 资源管理服务</a></div><div class="sidebar-item"><strong class="sidebar-title">GUI 图形界面</strong><div class="sidebar-item"><a href="client_gui_summary.html" class="sidebar-link">GUI 系统概述</a></div><div class="sidebar-item"><a href="client_gui_components.html" class="sidebar-link current">GUI 组件</a></div><div class="sidebar-item"><a href="client_gui_scrollsystem.html" class="sidebar-link">Scroll System</a></div></div><div class="sidebar-item"><a href="client_statemachine_ui.html" class="sidebar-link">状态机 & UI</a></div><div class="sidebar-item"><a href="client_lua_techguide.html" class="sidebar-link">Lua 开发规范</a></div><div class="sidebar-item"><a href="client_user_guild_frame_sync.html" class="sidebar-link">帧帧同步类型前端开发指南</a></div></div><div class="sidebar-item"><strong class="sidebar-title">工具链</strong><div class="sidebar-item"><a href="configdata_tool.html" class="sidebar-link">打表工具与Protobuf工具</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">后端</strong><div class="sidebar-item"><a href="server_summary.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="server_mini.html" class="mobile-nav-link">如何开始</a></div><div class="sidebar-item"><a href="server_user_guild.html" class="mobile-nav-link">通用功能使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_chatapi.html" class="mobile-nav-link">聊天API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_mailapi.html" class="mobile-nav-link">邮件API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_matchpapi.html" class="mobile-nav-link">匹配API使用手册</a></div><div class="sidebar-item"><a href="server_user_guild_cs.html" class="mobile-nav-link">CS模式服务器开发指南</a></div><div class="sidebar-item"><a href="server_user_guild_frame_sync.html" class="mobile-nav-link">帧同步模式服务器开发指南</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">前端</strong><div class="sidebar-item"><a href="client_summary.html" class="mobile-nav-link">概述</a></div><div class="sidebar-item"><a href="client_mini.html" class="mobile-nav-link">如何开始</a></div><div class="sidebar-item"><a href="client_service.html" class="mobile-nav-link">服务</a></div><div class="sidebar-item"><a href="client_lua_basic.html" class="mobile-nav-link">Lua 基础</a></div><div class="sidebar-item"><a href="client_network.html" class="mobile-nav-link">Network 网络交互服务</a></div><div class="sidebar-item"><a href="client_resourcesmanager.html" class="mobile-nav-link">Resource 资源管理服务</a></div><div class="sidebar-item"><strong class="mobile-nav-title">GUI 图形界面</strong><div class="sidebar-item"><a href="client_gui_summary.html" class="mobile-nav-link">GUI 系统概述</a></div><div class="sidebar-item"><a href="client_gui_components.html" class="mobile-nav-link current">GUI 组件</a></div><div class="sidebar-item"><a href="client_gui_scrollsystem.html" class="mobile-nav-link">Scroll System</a></div></div><div class="sidebar-item"><a href="client_statemachine_ui.html" class="mobile-nav-link">状态机 & UI</a></div><div class="sidebar-item"><a href="client_lua_techguide.html" class="mobile-nav-link">Lua 开发规范</a></div><div class="sidebar-item"><a href="client_user_guild_frame_sync.html" class="mobile-nav-link">帧帧同步类型前端开发指南</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">工具链</strong><div class="sidebar-item"><a href="configdata_tool.html" class="mobile-nav-link">打表工具与Protobuf工具</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

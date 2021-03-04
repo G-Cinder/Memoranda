@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Lua分层状态机及UI框架（StateUI） | Cinder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://g-cinder.github.io/Memoranda/code_specs/statemachine.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="cn" href="https://g-cinder.github.io/Memoranda/code_specs/statemachine.html">
+    
+  
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/Memoranda/icon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/Memoranda/icon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/Memoranda/icon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/Memoranda/icon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/Memoranda/icon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/Memoranda/icon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Memoranda/icon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/Memoranda/icon/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/Memoranda/icon/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2f83cd">
+  <meta name="msapplication-TileImage" content="/Memoranda/icon/mstile-144x144.png">
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/Memoranda/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Open Graph -->
+  <meta name="description" content="概述StateUI (Lua)是以StateMachine为基础，建立分层状态机以及State和UI Window的交互规则，在框架层内建State切换时对应State内Window的Open/Close规则。 StateDriver    |    |-- Initialize       &amp;lt;==&amp;gt; InitWindow    |    |-- Login            &amp;l">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lua分层状态机及UI框架（StateUI）">
+<meta property="og:url" content="https://g-cinder.github.io/Memoranda/code_specs/statemachine.html">
+<meta property="og:site_name" content="Cinder">
+<meta property="og:description" content="概述StateUI (Lua)是以StateMachine为基础，建立分层状态机以及State和UI Window的交互规则，在框架层内建State切换时对应State内Window的Open/Close规则。 StateDriver    |    |-- Initialize       &amp;lt;==&amp;gt; InitWindow    |    |-- Login            &amp;l">
+<meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2021-03-04T04:19:42.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lua分层状态机及UI框架（StateUI）">
+<meta name="twitter:description" content="概述StateUI (Lua)是以StateMachine为基础，建立分层状态机以及State和UI Window的交互规则，在框架层内建State切换时对应State内Window的Open/Close规则。 StateDriver    |    |-- Initialize       &amp;lt;==&amp;gt; InitWindow    |    |-- Login            &amp;l">
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/Memoranda/" id="logo">Cinder</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/Memoranda/cinder_framework" class="main-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="main-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="main-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="main-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="main-nav-link">技术分享</a>
+    </nav>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Lua分层状态机及UI框架（StateUI）</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/code_specs/statemachine.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <h2 id="概述" class="article-heading"><a href="#概述" class="headerlink" title="概述"></a>概述<a class="article-anchor" href="#概述" aria-hidden="true"></a></h2><p><strong>StateUI (Lua)</strong>是以<code>StateMachine</code>为基础，建立分层状态机以及<code>State</code>和<code>UI Window</code>的交互规则，在框架层内建<code>State</code>切换时对应<code>State</code>内<code>Window</code>的<code>Open</code>/<code>Close</code>规则。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">StateDriver</span><br><span class="line">    |</span><br><span class="line">    |-- Initialize       &lt;==&gt; InitWindow</span><br><span class="line">    |</span><br><span class="line">    |-- Login            &lt;==&gt; LoginWindow</span><br><span class="line">    |</span><br><span class="line">    |-- SelectRole       &lt;==&gt; SelectRoleWindow CreateRoleWindow</span><br><span class="line">    |</span><br><span class="line">    |-- Gaming</span><br><span class="line">    |     |</span><br><span class="line">          |-- Camp       &lt;==&gt; BottomBar</span><br><span class="line">          |</span><br><span class="line">          |-- Role       &lt;==&gt; BottomBar, TopBar, ...</span><br><span class="line">          |    |</span><br><span class="line">          |    |-- ...</span><br><span class="line">          |</span><br><span class="line">          |-- Fight      &lt;==&gt; BottomBar, TopBar, ChatBar, ...</span><br><span class="line">          |    |</span><br><span class="line">          |    |-- ...</span><br><span class="line">          |</span><br><span class="line">          |-- Pet        &lt;==&gt; BottomBar, ...</span><br><span class="line">          |</span><br><span class="line">          |-- ...</span><br></pre></td></tr></table></figure>
+<h2 id="开发规范" class="article-heading"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范<a class="article-anchor" href="#开发规范" aria-hidden="true"></a></h2><p><strong>StateUI</strong>试图建立一种开发规范，明确规定State与Window的访问权限。哪些代码应该在State中实现，哪些又需要在Window中实现。</p>
+<ul>
+<li>Window内应该仅处理本Window的UI控件，不能直接操纵其他Window和场景</li>
+<li>Window仅能向所属的State发送Event</li>
+<li>Window仅能读取（Get）所属State的指定数据</li>
+<li>Window仅能关闭自己</li>
+<li>State可以Open/Close目标Window</li>
+<li>State可以发送Message给所有Visible的Window</li>
+<li>State可以向父State发送Event</li>
+</ul>
+<p><strong>StateUI</strong>的默认规则是：</p>
+<blockquote>
+<p>进入State后，之前的所有Window都会被默认Close。</p>
+</blockquote>
+<h2 id="快速开始" class="article-heading"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始<a class="article-anchor" href="#快速开始" aria-hidden="true"></a></h2><ul>
+<li>实现<code>IWindowProvider</code>（详情参看<code>IWindowProvider</code>节）</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">GameWindowProvider = class(<span class="string">"GameWindowProvider"</span>, IWindowProvider)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动<code>StateDriver</code>（详情参看<code>StateDriver</code>节）</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> driver = StateDriver.new(GameWindowProvider.new())</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动目标State，例如Initialize</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">Initialize = class(<span class="string">"Initialize"</span>, State)</span><br></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">driver:ChangeState(Initialize.new())</span><br></pre></td></tr></table></figure>
+<h2 id="StateDriver" class="article-heading"><a href="#StateDriver" class="headerlink" title="StateDriver"></a>StateDriver<a class="article-anchor" href="#StateDriver" aria-hidden="true"></a></h2><p><code>StateDriver</code>是<strong>StateUI</strong>的驱动器，是整个模块的入口。<strong>StateUI</strong>本身并不直接处理Window的行为，而是依靠外部注入<code>IWindowProvider</code>的实体对象来间接应用<strong>StateUI</strong>的逻辑。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 帧更新入口，需要确保刷新调用</span></span><br><span class="line">self:Update(deltaTime)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 销毁</span></span><br><span class="line">self:Destroy()</span><br></pre></td></tr></table></figure>
+<h3 id="IWindowProvider" class="article-heading"><a href="#IWindowProvider" class="headerlink" title="IWindowProvider"></a>IWindowProvider<a class="article-anchor" href="#IWindowProvider" aria-hidden="true"></a></h3><p>应用层需要实现<code>IWindowProvider</code>接口，然后注入到<code>StateDriver</code>中。从而<strong>StateUI</strong>可以真正使用规则影响目标<code>Window</code>。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- Provider 初始化。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnInit</span><span class="params">()</span></span> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Provider 销毁。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnDestroy</span><span class="params">()</span></span> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建目标窗口并返回真实Window的对象。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:Create</span><span class="params">(name)</span></span> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 销毁目标窗口。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:Destroy</span><span class="params">(name)</span></span> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 显示窗口。StateUI会确保目标窗口已经被创建。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:Show</span><span class="params">(name)</span></span> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 隐藏目标窗口。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:Hide</span><span class="params">(name)</span></span> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 打开目标窗口，并传入IWindow对象。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:Open</span><span class="params">(name, iwindow, ...)</span></span> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 关闭目标窗口，并传入IWindow对象。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:Close</span><span class="params">(name, iwindow)</span></span> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="State" class="article-heading"><a href="#State" class="headerlink" title="State"></a>State<a class="article-anchor" href="#State" aria-hidden="true"></a></h2><p><strong>State</strong>只需操作关心的<code>Window</code>的<code>Open</code>和<code>Close</code>即可，不关心的<code>Window</code>会被框架层自动<code>Close</code>。</p>
+<h3 id="State-扩展" class="article-heading"><a href="#State-扩展" class="headerlink" title="State 扩展"></a>State 扩展<a class="article-anchor" href="#State-扩展" aria-hidden="true"></a></h3><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> M = class(<span class="string">"MyState"</span>, State)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnEnter</span><span class="params">(ctx)</span></span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnExit</span><span class="params">()</span></span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnUpdate</span><span class="params">(deltaTime)</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="State-切换" class="article-heading"><a href="#State-切换" class="headerlink" title="State 切换"></a>State 切换<a class="article-anchor" href="#State-切换" aria-hidden="true"></a></h3><p>使用<code>ChangeState(state, ctx)</code>切换状态，并将传入的<code>state</code>作为返回值返回。其中<code>ctx</code>为可以携带的上下文参数，可以不填。</p>
+<h4 id="进入-切换当前State" class="article-heading"><a href="#进入-切换当前State" class="headerlink" title="进入/切换当前State"></a>进入/切换当前State<a class="article-anchor" href="#进入-切换当前State" aria-hidden="true"></a></h4><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:GetParent():ChangeState(state)</span><br></pre></td></tr></table></figure>
+<h4 id="退出当前State" class="article-heading"><a href="#退出当前State" class="headerlink" title="退出当前State"></a>退出当前State<a class="article-anchor" href="#退出当前State" aria-hidden="true"></a></h4><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:GetParent():ChangeState(<span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="进入-切换子State" class="article-heading"><a href="#进入-切换子State" class="headerlink" title="进入/切换子State"></a>进入/切换子State<a class="article-anchor" href="#进入-切换子State" aria-hidden="true"></a></h4><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:ChangeState(state)</span><br></pre></td></tr></table></figure>
+<h4 id="退出子State" class="article-heading"><a href="#退出子State" class="headerlink" title="退出子State"></a>退出子State<a class="article-anchor" href="#退出子State" aria-hidden="true"></a></h4><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:ChangeState(<span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="State向上抛出Event" class="article-heading"><a href="#State向上抛出Event" class="headerlink" title="State向上抛出Event"></a>State向上抛出Event<a class="article-anchor" href="#State向上抛出Event" aria-hidden="true"></a></h4><p>使用<code>self:Upcast(event, ...)</code>向父级<code>State</code>抛出<code>Event</code>。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:Upcast(<span class="string">"Navigate"</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="父级State处理下层State抛出的Event" class="article-heading"><a href="#父级State处理下层State抛出的Event" class="headerlink" title="父级State处理下层State抛出的Event"></a>父级State处理下层State抛出的Event<a class="article-anchor" href="#父级State处理下层State抛出的Event" aria-hidden="true"></a></h5><p>实现<code>OnNotify</code>加上<code>Event名称</code>组成的函数。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnNotifyNavigate</span><span class="params">(index)</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="Window" class="article-heading"><a href="#Window" class="headerlink" title="Window"></a>Window<a class="article-anchor" href="#Window" aria-hidden="true"></a></h2><p>在<strong>StateUI</strong>中，<code>Window</code>分为两种：<code>普通Window</code>和<code>固定Window</code>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">类型</th>
+<th style="text-align:left">行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">普通Window</td>
+<td style="text-align:left">Window的状态在进入子State后会默认关闭。也就是，如果父State打开普通Window并保持打开状态，那么进入子State后，该Window会被自动关闭。</td>
+</tr>
+<tr>
+<td style="text-align:right">固定Window</td>
+<td style="text-align:left">Window的状态在进入子State后会被保留。也就是，如果父State打开固定Window并保持打开状态，那么进入子State后，该Window还是会保持打开状态。</td>
+</tr>
+</tbody>
+</table>
+<p>在<strong>StateUI</strong>中，<code>Window</code>的打开方式有两种：<code>普通Open</code>和<code>排队Open</code>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">类型</th>
+<th style="text-align:left">行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">普通Open</td>
+<td style="text-align:left">目标Window被直接打开。</td>
+</tr>
+<tr>
+<td style="text-align:right">排队Open</td>
+<td style="text-align:left">目标Window进入打开的排队系统，若处于第一位，则直接打开，否则在队列中等待，直到排在前面的Window被关闭。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="State可操作Window的接口" class="article-heading"><a href="#State可操作Window的接口" class="headerlink" title="State可操作Window的接口"></a>State可操作Window的接口<a class="article-anchor" href="#State可操作Window的接口" aria-hidden="true"></a></h3><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 预加载目标窗口</span></span><br><span class="line">self:PreloadWindow(window)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 打开目标窗口</span></span><br><span class="line">self:OpenWindow(window, ...)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 打开固定窗口</span></span><br><span class="line">self:OpenFixedWindow(window, ...)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用排队系统打开目标窗口</span></span><br><span class="line">self:OpenWindowQueued(window, ...)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用排队系统打开固定窗口</span></span><br><span class="line">self:OpenFixedWindowQueued(window, ...)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 关闭目标窗口</span></span><br><span class="line">self:CloseWindow(window, ...)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 情况窗口排队系统</span></span><br><span class="line">self:ClearQueuedWindows()</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询目标Window是否处于打开状态</span></span><br><span class="line">self:IsWindowOpened(window)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 激活Window域，State退出后，归属该State的所有Window会被销毁。</span></span><br><span class="line">self:EnableDomain()</span><br></pre></td></tr></table></figure>
+<h3 id="向Window发送Message" class="article-heading"><a href="#向Window发送Message" class="headerlink" title="向Window发送Message"></a>向Window发送Message<a class="article-anchor" href="#向Window发送Message" aria-hidden="true"></a></h3><p>通过<code>self:SendWindowMessage(messge, ...)</code>向所有有效（<code>显示中</code>）的<code>Window</code>发送消息。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:SendWindowMessage(<span class="string">"Progress"</span>, <span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="UICtrl接收State发送的Message" class="article-heading"><a href="#UICtrl接收State发送的Message" class="headerlink" title="UICtrl接收State发送的Message"></a>UICtrl接收State发送的Message<a class="article-anchor" href="#UICtrl接收State发送的Message" aria-hidden="true"></a></h4><p>实现<code>OnState</code>加上<code>Message名称</code>组成的函数。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnStateProgress</span><span class="params">(progress)</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="UICtrl" class="article-heading"><a href="#UICtrl" class="headerlink" title="UICtrl"></a>UICtrl<a class="article-anchor" href="#UICtrl" aria-hidden="true"></a></h2><p><strong>UICtrl</strong>应只关心自己Window内的逻辑，只能发送<code>Event</code>和读取（<code>Get</code>）目标属性。</p>
+<h3 id="初始化-清理" class="article-heading"><a href="#初始化-清理" class="headerlink" title="初始化/清理"></a>初始化/清理<a class="article-anchor" href="#初始化-清理" aria-hidden="true"></a></h3><p><code>Window</code>被<strong>Open</strong>（<code>创建</code>/<code>显示</code>）的时候，会调用<strong>UICtrl</strong>的<code>OnOpen</code>方法；反之，被<strong>Close</strong>（<code>隐藏</code>/<code>销毁</code>）的时候会调用<strong>UICtrl</strong>的<code>OnClose</code>方法。<code>Window</code>被重新创建的时候会调用<code>OnCreate</code>方法；而销毁时会调用<code>OnDestroy</code>方法。</p>
+<blockquote>
+<p>注意：由于Open可能只是显示目标Window，其背后的资源并未被释放，因此一些消息绑定操作请确保在OnClose中解绑，防止消息触发重入。</p>
+</blockquote>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnCreate</span><span class="params">()</span></span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnDestroy</span><span class="params">()</span></span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnOpen</span><span class="params">(data)</span></span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnClose</span><span class="params">()</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="Close自己" class="article-heading"><a href="#Close自己" class="headerlink" title="Close自己"></a>Close自己<a class="article-anchor" href="#Close自己" aria-hidden="true"></a></h3><p><strong>UICtrl</strong>可以直接关闭自己所属的<code>Window</code>。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:CloseSelf()</span><br></pre></td></tr></table></figure>
+<h3 id="发送Event" class="article-heading"><a href="#发送Event" class="headerlink" title="发送Event"></a>发送Event<a class="article-anchor" href="#发送Event" aria-hidden="true"></a></h3><p>通过<code>self:Notify(event, ...)</code>发送<code>Event</code>。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">self:Notify(<span class="string">"Print"</span>, <span class="string">"Hello"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="State处理Event" class="article-heading"><a href="#State处理Event" class="headerlink" title="State处理Event"></a>State处理Event<a class="article-anchor" href="#State处理Event" aria-hidden="true"></a></h4><p>实现<code>OnNotify</code>加上<code>Event名称</code>组成的函数。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnNotifyPrint</span><span class="params">(obj)</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="Get属性" class="article-heading"><a href="#Get属性" class="headerlink" title="Get属性"></a>Get属性<a class="article-anchor" href="#Get属性" aria-hidden="true"></a></h3><p><strong>UICtrl</strong>可以通过<code>self:Get(name, ...)</code>获取<code>State</code>层暴露的数据。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> name = self:Get(<span class="string">"ID"</span>, ...)</span><br></pre></td></tr></table></figure>
+<h4 id="State处理属性读取" class="article-heading"><a href="#State处理属性读取" class="headerlink" title="State处理属性读取"></a>State处理属性读取<a class="article-anchor" href="#State处理属性读取" aria-hidden="true"></a></h4><p>实现<code>OnGet</code>加上属性名称组成的函数。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:OnGetID</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2021-03-04T04:19:42.312Z" itemprop="dateModified">上次更新：2021-03-04</time>
+                <a href="client_code_specs.html" class="article-footer-prev" title="客户端代码规范"><i class="fa fa-chevron-left"></i><span>上一页</span></a><a href="ui_module.html" class="article-footer-next" title="UI开发规范"><span>下一页</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发规范"><span class="toc-text">开发规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-text">快速开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StateDriver"><span class="toc-text">StateDriver</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IWindowProvider"><span class="toc-text">IWindowProvider</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#State-扩展"><span class="toc-text">State 扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State-切换"><span class="toc-text">State 切换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进入-切换当前State"><span class="toc-text">进入/切换当前State</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#退出当前State"><span class="toc-text">退出当前State</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进入-切换子State"><span class="toc-text">进入/切换子State</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#退出子State"><span class="toc-text">退出子State</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#State向上抛出Event"><span class="toc-text">State向上抛出Event</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#父级State处理下层State抛出的Event"><span class="toc-text">父级State处理下层State抛出的Event</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Window"><span class="toc-text">Window</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#State可操作Window的接口"><span class="toc-text">State可操作Window的接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向Window发送Message"><span class="toc-text">向Window发送Message</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UICtrl接收State发送的Message"><span class="toc-text">UICtrl接收State发送的Message</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UICtrl"><span class="toc-text">UICtrl</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化-清理"><span class="toc-text">初始化/清理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Close自己"><span class="toc-text">Close自己</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发送Event"><span class="toc-text">发送Event</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#State处理Event"><span class="toc-text">State处理Event</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Get属性"><span class="toc-text">Get属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#State处理属性读取"><span class="toc-text">State处理属性读取</span></a></li></ol></li></ol></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <div class="sidebar-item"><strong class="sidebar-title">通用</strong><div class="sidebar-item"><a href="code_style.html" class="sidebar-link">代码规范</a></div></div><div class="sidebar-item"><strong class="sidebar-title">前端</strong><div class="sidebar-item"><a href="client_code_specs.html" class="sidebar-link">客户端代码规范</a></div><div class="sidebar-item"><a href="statemachine.html" class="sidebar-link current">分层状态机在客户端的使用</a></div><div class="sidebar-item"><a href="ui_module.html" class="sidebar-link">UI开发规范</a></div><div class="sidebar-item"><a href="scroll_view.html" class="sidebar-link">Scrollview说明</a></div><div class="sidebar-item"><a href="reconnect.html" class="sidebar-link">断线重连</a></div></div><div class="sidebar-item"><strong class="sidebar-title">后端</strong><div class="sidebar-item"><a href="server_code_specs.html" class="sidebar-link">服务器代码规范</a></div></div>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2021 <a href="https://github.com/muguangyi/seek/graphs/contributors" target="_blank">Cinder</a><br>
+      Documentation licensed under MIT.
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/Memoranda/cinder_framework" class="mobile-nav-link">通用框架</a><a href="/Memoranda/code_specs/" class="mobile-nav-link">代码规范</a><a href="/Memoranda/project_specs/" class="mobile-nav-link">项目规范</a><a href="/Memoranda/staff_management/" class="mobile-nav-link">人员管理</a><a href="/Memoranda/technology_share/" class="mobile-nav-link">技术分享</a>
+    </ul>
+    
+      <div class="sidebar-item"><strong class="mobile-nav-title">通用</strong><div class="sidebar-item"><a href="code_style.html" class="mobile-nav-link">代码规范</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">前端</strong><div class="sidebar-item"><a href="client_code_specs.html" class="mobile-nav-link">客户端代码规范</a></div><div class="sidebar-item"><a href="statemachine.html" class="mobile-nav-link current">分层状态机在客户端的使用</a></div><div class="sidebar-item"><a href="ui_module.html" class="mobile-nav-link">UI开发规范</a></div><div class="sidebar-item"><a href="scroll_view.html" class="mobile-nav-link">Scrollview说明</a></div><div class="sidebar-item"><a href="reconnect.html" class="mobile-nav-link">断线重连</a></div></div><div class="sidebar-item"><strong class="mobile-nav-title">后端</strong><div class="sidebar-item"><a href="server_code_specs.html" class="mobile-nav-link">服务器代码规范</a></div></div>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>Chinese</span></span>
+    <select id="mobile-lang-select" data-canonical="">
+      
+        <option value="cn" selected>Chinese</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- Cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+<!-- build:js build/js/main.js -->
+<script src="/Memoranda/js/lang_select.js"></script>
+<script src="/Memoranda/js/toc.js"></script>
+<script src="/Memoranda/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>
